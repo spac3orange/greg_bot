@@ -4,7 +4,7 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from config import aiogram_bot
 from config.logger import logger
 from keyboards import set_commands_menu
-from handlers import start, create_form, edit_form, girl_lk, pop_up_commands, admin_panel
+from handlers import start, create_form, edit_form, girl_lk, pop_up_commands, admin_panel, status
 from database import db
 
 
@@ -15,6 +15,7 @@ async def start_params() -> None:
     dp.include_router(edit_form.router)
     dp.include_router(girl_lk.router)
     dp.include_router(admin_panel.router)
+    dp.include_router(status.router)
     dp.include_router(pop_up_commands.router)
     # dp.include_router(unknown_command.router)
 

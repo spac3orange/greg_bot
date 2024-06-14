@@ -13,5 +13,10 @@ class CreateForm(StatesGroup):
 class ReqMoney(StatesGroup):
     input_card = State()
 
+
 class Admmailing(StatesGroup):
     input_message = State()
+
+
+class SetStatusOnline(StatesGroup):
+    input_hours = State()

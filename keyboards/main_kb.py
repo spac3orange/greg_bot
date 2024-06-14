@@ -8,12 +8,16 @@ def start_btns(uid):
     if str(uid) in admins:
         kb_builder.button(text='Создать анкету', callback_data='create_form')
         kb_builder.button(text='Моя анкета', callback_data='my_forms')
+        kb_builder.button(text='Статус', callback_data='edit_status')
         kb_builder.button(text='Личный кабинет', callback_data='girls_lk')
         kb_builder.button(text='Админ панель', callback_data='admin_panel')
+        kb_builder.button(text='Тех. Поддержка', url='https://t.me/stepusiks')
     else:
         kb_builder.button(text='Создать анкету', callback_data='create_form')
         kb_builder.button(text='Моя анкета', callback_data='my_forms')
+        kb_builder.button(text='Статус', callback_data='edit_status')
         kb_builder.button(text='Личный кабинет', callback_data='girls_lk')
+        kb_builder.button(text='Тех. Поддержка', url='https://t.me/stepusiks')
     kb_builder.adjust(2)
     return kb_builder.as_markup(resize_keyboard=True)
 
@@ -49,6 +53,7 @@ def approve_form():
 def edit_form():
     kb_builder = InlineKeyboardBuilder()
     kb_builder.button(text='Редактировать', callback_data='create_form')
+    kb_builder.button(text='Удалить', callback_data='del_self_from')
     kb_builder.button(text='Назад', callback_data='back_to_main')
     kb_builder.adjust(1)
     return kb_builder.as_markup(resize_keyboard=True)
@@ -76,4 +81,12 @@ def adm_form_edit(del_id):
     print(type(del_id))
     kb_builder = InlineKeyboardBuilder()
     kb_builder.button(text='Удалить', callback_data=f'adm_del_form_{del_id}')
+    return kb_builder.as_markup(resize_keyboard=True)
+
+
+def g_status_menu():
+    kb_builder = InlineKeyboardBuilder()
+    kb_builder.button(text='Онлайн', callback_data=f'chstatus_online')
+    kb_builder.button(text='Оффлайн', callback_data=f'chstatus_offline')
+    kb_builder.adjust(2)
     return kb_builder.as_markup(resize_keyboard=True)

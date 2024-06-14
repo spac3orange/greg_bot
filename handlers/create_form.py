@@ -82,6 +82,11 @@ async def p_process_media(message: Message, state: FSMContext):
             file_id = message.video.file_id
             file_extension = 'mp4'
 
+        file_info = await aiogram_bot.get_file(file_id)
+        if file_info.file_size > 10 * 1024 * 1024:
+            await message.answer("Файл слишком большой. Пожалуйста, загрузите файл размером не более 10 мегабайт.")
+            return
+
         media_name = f'{uid}_{randint}_{media_type}.{file_extension}'
         file_info = await aiogram_bot.get_file(file_id)
         downloaded_file = await aiogram_bot.download_file(file_info.file_path)
@@ -157,6 +162,7 @@ async def p_input_description(message: Message, state: FSMContext):
 @router.callback_query(F.data == 'form_created')
 async def p_form_created(callback: CallbackQuery, state: FSMContext):
     data = await state.get_data()
+    await callback.answer()
     print(data)
     uid, username = callback.from_user.id, callback.from_user.username
     await state.clear()
@@ -168,4 +174,5 @@ async def p_form_created(callback: CallbackQuery, state: FSMContext):
         data['price']
     )
     await callback.message.answer('Анкета создана.')
+    await db.reg_in_shift(uid, username)
     await go_main(callback)

@@ -31,3 +31,14 @@ async def p_forms(callback: CallbackQuery):
     except Exception as e:
         logger.error(e)
         await callback.message.answer('Информация не найдена. Возможно, вы еще не создали анкету.')
+
+
+@router.callback_query(F.data == 'del_self_form')
+async def p_del_form(call: CallbackQuery):
+    try:
+        uid = call.from_user.id
+        await db.delete_form(uid)
+        await call.message.answer('Анкета удалена.')
+    except Exception as e:
+        logger.error(e)
+        await call.message.answer('Ошибка при удалении анкеты. Попробуйте позднее.')

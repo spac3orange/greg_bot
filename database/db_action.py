@@ -86,6 +86,16 @@ class Database:
                         )
                     """)
 
+            await self.execute_query("""
+                                    CREATE TABLE IF NOT EXISTS girl_shift (
+                                        user_id BIGINT PRIMARY KEY,
+                                        username TEXT,
+                                        shift_status TEXT DEFAULT 'Offline',
+                                        shift_start TEXT DEFAULT 'None',
+                                        shift_end TEXT DEFAULT 'None'
+                                    )
+                                """)
+
             logger.info('connected to database')
 
         except (Exception, asyncpg.PostgresError) as error:
@@ -189,5 +199,58 @@ class Database:
             logger.error("Error while retrieving withdraw requests", error)
             return []
 
+    async def get_shift_status(self, user_id):
+        try:
+            result = await self.fetch_row(
+                "SELECT * FROM girl_shift WHERE user_id = $1", user_id)
+            if result:
+                return result
+            else:
+                return "User not found"
+        except (Exception, asyncpg.PostgresError) as error:
+            logger.error("Error retrieving shift status", error)
+            return str(error)
+
+    async def add_shift(self, user_id, username, shift_status, shift_start, shift_end):
+        query = """
+        INSERT INTO girl_shift (user_id, username, shift_status, shift_start, shift_end)
+        VALUES ($1, $2, $3, $4, $5)
+        ON CONFLICT (user_id) DO UPDATE
+        SET shift_status = EXCLUDED.shift_status,
+            shift_start = EXCLUDED.shift_start,
+            shift_end = EXCLUDED.shift_end
+        """
+        try:
+            await self.execute_query(query, user_id, username, shift_status, shift_start, shift_end)
+            return "Shift added/updated successfully."
+        except (Exception, asyncpg.PostgresError) as error:
+            logger.error("Error adding/updating shift", error)
+            return str(error)
+
+    async def clear_shift(self, user_id):
+        query = """
+        UPDATE girl_shift
+        SET shift_status = 'Offline', shift_start = 'None', shift_end = 'None'
+        WHERE user_id = $1
+        """
+        try:
+            await self.execute_query(query, user_id)
+            return "Shift cleared successfully."
+        except (Exception, asyncpg.PostgresError) as error:
+            logger.error("Error clearing shift", error)
+            return str(error)
+
+    async def reg_in_shift(self, user_id, username):
+        query = """
+        INSERT INTO girl_shift (user_id, username)
+        VALUES ($1, $2)
+        ON CONFLICT (user_id) DO NOTHING
+        """
+        try:
+            await self.execute_query(query, user_id, username)
+            return f"User {username} added to shift table"
+        except (Exception, asyncpg.PostgresError) as error:
+            logger.error(f"Error adding to shift table {username}", error)
+            return str(error)
 
 db = Database()

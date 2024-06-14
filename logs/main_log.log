@@ -1,0 +1,774 @@
+2024-03-31 01:43:11.302 | INFO     | __main__:start_params:13 - Bot started
+2024-03-31 01:43:14.749 | INFO     | database.db_action:db_start:79 - connected to database
+2024-03-31 01:44:34.859 | WARNING  | __main__:<module>:35 - Bot stopped
+2024-03-31 01:44:38.809 | INFO     | __main__:start_params:15 - Bot started
+2024-03-31 01:44:39.665 | INFO     | database.db_action:db_start:79 - connected to database
+2024-03-31 01:52:41.070 | WARNING  | __main__:<module>:37 - Bot stopped
+2024-03-31 01:52:43.433 | INFO     | __main__:start_params:17 - Bot started
+2024-03-31 01:52:43.968 | INFO     | database.db_action:db_start:79 - connected to database
+2024-03-31 01:54:45.804 | INFO     | __main__:start_params:17 - Bot started
+2024-03-31 01:54:46.323 | INFO     | database.db_action:db_start:79 - connected to database
+2024-03-31 01:55:05.863 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-03-31 01:55:09.229 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-03-31 01:55:12.587 | INFO     | __main__:start_params:17 - Bot started
+2024-03-31 01:55:13.087 | INFO     | database.db_action:db_start:79 - connected to database
+2024-03-31 01:55:31.351 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-03-31 01:55:33.329 | INFO     | __main__:start_params:17 - Bot started
+2024-03-31 01:55:33.858 | INFO     | database.db_action:db_start:79 - connected to database
+2024-03-31 01:56:59.782 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-03-31 01:57:01.807 | INFO     | __main__:start_params:17 - Bot started
+2024-03-31 01:57:02.326 | INFO     | database.db_action:db_start:79 - connected to database
+2024-03-31 01:58:40.941 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-03-31 01:58:42.941 | INFO     | __main__:start_params:17 - Bot started
+2024-03-31 01:58:43.480 | INFO     | database.db_action:db_start:79 - connected to database
+2024-03-31 02:00:14.428 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-03-31 02:00:16.500 | INFO     | __main__:start_params:17 - Bot started
+2024-03-31 02:00:17.021 | INFO     | database.db_action:db_start:79 - connected to database
+2024-03-31 02:01:55.127 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-03-31 02:01:57.137 | INFO     | __main__:start_params:17 - Bot started
+2024-03-31 02:01:57.745 | INFO     | database.db_action:db_start:79 - connected to database
+2024-03-31 02:06:24.815 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-03-31 02:06:26.813 | INFO     | __main__:start_params:17 - Bot started
+2024-03-31 02:06:27.340 | INFO     | database.db_action:db_start:79 - connected to database
+2024-03-31 02:06:58.438 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-03-31 02:07:00.512 | INFO     | __main__:start_params:18 - Bot started
+2024-03-31 02:07:01.028 | INFO     | database.db_action:db_start:79 - connected to database
+2024-03-31 02:08:01.554 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-03-31 02:08:03.597 | INFO     | __main__:start_params:18 - Bot started
+2024-03-31 02:08:04.115 | INFO     | database.db_action:db_start:79 - connected to database
+2024-03-31 02:21:21.204 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-03-31 02:21:23.219 | INFO     | __main__:start_params:18 - Bot started
+2024-03-31 02:21:23.740 | INFO     | database.db_action:db_start:79 - connected to database
+2024-03-31 02:22:00.311 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-03-31 02:22:02.398 | INFO     | __main__:start_params:18 - Bot started
+2024-03-31 02:22:02.940 | INFO     | database.db_action:db_start:79 - connected to database
+2024-03-31 02:31:13.887 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-03-31 02:31:16.098 | INFO     | __main__:start_params:18 - Bot started
+2024-03-31 02:31:16.705 | INFO     | database.db_action:db_start:73 - connected to database
+2024-03-31 02:31:18.851 | INFO     | handlers.start:process_start:19 - User connected: Jisierk
+2024-03-31 02:32:00.549 | INFO     | handlers.start:process_start:19 - User connected: Jisierk
+2024-03-31 02:42:53.373 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-03-31 02:42:55.318 | INFO     | __main__:start_params:18 - Bot started
+2024-03-31 02:42:55.825 | INFO     | database.db_action:db_start:73 - connected to database
+2024-03-31 02:44:15.716 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-03-31 02:44:17.663 | INFO     | __main__:start_params:18 - Bot started
+2024-03-31 02:44:18.181 | INFO     | database.db_action:db_start:73 - connected to database
+2024-03-31 02:44:28.997 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-03-31 02:44:39.141 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-03-31 02:44:41.126 | INFO     | __main__:start_params:18 - Bot started
+2024-03-31 02:44:41.658 | INFO     | database.db_action:db_start:73 - connected to database
+2024-03-31 02:44:48.505 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-03-31 02:45:21.499 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-03-31 02:56:59.089 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-03-31 02:57:01.104 | INFO     | __main__:start_params:22 - Bot started
+2024-03-31 02:57:01.622 | INFO     | database.db_action:db_start:73 - connected to database
+2024-03-31 02:57:03.361 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-03-31 02:59:24.518 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-03-31 02:59:26.550 | INFO     | __main__:start_params:23 - Bot started
+2024-03-31 02:59:27.072 | INFO     | database.db_action:db_start:73 - connected to database
+2024-03-31 02:59:27.751 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-03-31 11:18:53.788 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-03-31 11:18:53.826 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-03-31 19:47:05.728 | WARNING  | __main__:<module>:45 - Bot stopped
+2024-03-31 19:47:08.490 | INFO     | __main__:start_params:23 - Bot started
+2024-03-31 19:47:09.037 | INFO     | database.db_action:db_start:73 - connected to database
+2024-03-31 19:47:35.879 | WARNING  | __main__:<module>:45 - Bot stopped
+2024-03-31 19:47:47.820 | INFO     | __main__:start_params:23 - Bot started
+2024-03-31 19:47:48.379 | INFO     | database.db_action:db_start:73 - connected to database
+2024-03-31 19:47:54.135 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-03-31 19:49:58.641 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-03-31 19:50:04.977 | INFO     | handlers.start:process_start:25 - User connected: stepusiks
+2024-03-31 19:51:00.133 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-01 17:07:37.034 | WARNING  | __main__:<module>:45 - Bot stopped
+2024-04-01 23:19:18.143 | INFO     | __main__:start_params:18 - Bot started
+2024-04-01 23:21:16.771 | INFO     | __main__:start_params:18 - Bot started
+2024-04-01 23:21:38.064 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-01 23:21:40.494 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-01 23:21:42.804 | INFO     | __main__:start_params:18 - Bot started
+2024-04-01 23:23:41.208 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-01 23:23:43.186 | INFO     | __main__:start_params:18 - Bot started
+2024-04-01 23:24:06.634 | ERROR    | handlers.create_form:p_process_media:60 - [Errno 2] No such file or directory: 'media/Jisierk/462813109_1636_photo.jpg'
+2024-04-01 23:28:27.454 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-01 23:28:29.600 | INFO     | __main__:start_params:18 - Bot started
+2024-04-01 23:28:49.197 | INFO     | handlers.create_form:check_folder:22 - Папка Jisierk успешно создана.
+2024-04-01 23:30:50.243 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-01 23:30:52.350 | INFO     | __main__:start_params:18 - Bot started
+2024-04-01 23:31:07.042 | INFO     | handlers.create_form:check_folder:22 - Папка 462813109 успешно создана.
+2024-04-01 23:36:37.931 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-01 23:36:39.902 | INFO     | __main__:start_params:18 - Bot started
+2024-04-01 23:36:55.085 | INFO     | handlers.create_form:check_folder:24 - Папка 462813109 уже существует.
+2024-04-01 23:39:40.141 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-01 23:39:42.140 | INFO     | __main__:start_params:18 - Bot started
+2024-04-01 23:39:54.423 | INFO     | handlers.create_form:check_folder:24 - Папка 462813109 уже существует.
+2024-04-01 23:41:39.206 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-01 23:41:41.543 | INFO     | __main__:start_params:18 - Bot started
+2024-04-01 23:41:55.654 | INFO     | handlers.create_form:check_folder:24 - Папка 462813109 уже существует.
+2024-04-01 23:42:24.792 | INFO     | handlers.create_form:check_folder:24 - Папка 462813109 уже существует.
+2024-04-02 00:11:05.665 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-02 00:11:07.645 | INFO     | __main__:start_params:18 - Bot started
+2024-04-02 00:11:26.782 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-02 00:11:28.723 | INFO     | __main__:start_params:18 - Bot started
+2024-04-02 00:11:44.788 | INFO     | handlers.create_form:check_folder:24 - Папка 462813109 уже существует.
+2024-04-02 00:12:32.721 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-02 00:12:34.667 | INFO     | __main__:start_params:18 - Bot started
+2024-04-02 00:12:46.565 | INFO     | handlers.create_form:check_folder:24 - Папка 462813109 уже существует.
+2024-04-02 00:13:14.246 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-02 00:13:16.225 | INFO     | __main__:start_params:18 - Bot started
+2024-04-02 00:13:34.279 | INFO     | handlers.create_form:check_folder:24 - Папка 462813109 уже существует.
+2024-04-02 00:18:10.741 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-02 00:18:12.662 | INFO     | __main__:start_params:18 - Bot started
+2024-04-02 00:18:28.743 | INFO     | handlers.create_form:check_folder:24 - Папка 462813109 уже существует.
+2024-04-02 00:26:03.932 | INFO     | handlers.create_form:check_folder:24 - Папка 462813109 уже существует.
+2024-04-02 00:34:18.062 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-02 00:34:20.440 | INFO     | __main__:start_params:18 - Bot started
+2024-04-02 00:34:45.791 | INFO     | handlers.create_form:check_folder:24 - Папка 462813109 уже существует.
+2024-04-02 00:48:37.888 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-02 00:48:39.856 | INFO     | __main__:start_params:18 - Bot started
+2024-04-02 00:48:55.521 | INFO     | handlers.create_form:check_folder:24 - Папка 462813109 уже существует.
+2024-04-02 00:49:19.544 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-02 00:49:21.497 | INFO     | __main__:start_params:18 - Bot started
+2024-04-02 00:49:34.923 | INFO     | handlers.create_form:check_folder:24 - Папка 462813109 уже существует.
+2024-04-02 00:50:09.283 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-02 00:50:11.291 | INFO     | __main__:start_params:18 - Bot started
+2024-04-02 00:50:23.225 | INFO     | handlers.create_form:check_folder:24 - Папка 462813109 уже существует.
+2024-04-02 00:51:21.378 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-02 00:51:23.380 | INFO     | __main__:start_params:18 - Bot started
+2024-04-02 00:55:35.156 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-02 00:55:37.071 | INFO     | __main__:start_params:18 - Bot started
+2024-04-02 00:56:52.654 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-02 00:56:52.703 | INFO     | handlers.create_form:check_folder:27 - Папка 1320351561 успешно создана.
+2024-04-02 00:58:12.057 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-02 01:00:16.146 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-02 01:02:08.367 | INFO     | handlers.create_form:check_folder:29 - Папка 1320351561 уже существует.
+2024-04-02 01:03:34.571 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-02 01:05:54.921 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-02 16:26:32.606 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-02 16:26:35.150 | INFO     | __main__:start_params:18 - Bot started
+2024-04-02 16:26:43.606 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-02 16:26:57.426 | INFO     | __main__:start_params:18 - Bot started
+2024-04-02 16:27:32.727 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-02 16:27:45.300 | INFO     | __main__:start_params:18 - Bot started
+2024-04-02 16:27:46.007 | INFO     | database.db_action:db_start:77 - connected to database
+2024-04-02 16:28:08.572 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-02 17:37:29.543 | INFO     | __main__:start_params:17 - Bot started
+2024-04-02 17:37:30.303 | INFO     | database.db_action:db_start:77 - connected to database
+2024-04-02 17:38:56.663 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-02 17:40:59.973 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-03 02:22:08.670 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-04-03 15:45:44.910 | INFO     | __main__:start_params:17 - Bot started
+2024-04-03 15:45:45.515 | INFO     | database.db_action:db_start:77 - connected to database
+2024-04-03 15:46:16.051 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-03 15:46:33.114 | INFO     | database.db_action:insert_girl_data:100 - Data for user 462813109 inserted successfully.
+2024-04-03 15:47:19.836 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-04-03 15:47:21.843 | INFO     | __main__:start_params:17 - Bot started
+2024-04-03 15:47:22.437 | INFO     | database.db_action:db_start:77 - connected to database
+2024-04-03 15:47:34.645 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-03 15:47:45.102 | INFO     | database.db_action:insert_girl_data:100 - Data for user 462813109 inserted successfully.
+2024-04-03 15:48:35.562 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-04-03 15:48:37.642 | INFO     | __main__:start_params:17 - Bot started
+2024-04-03 15:48:38.268 | INFO     | database.db_action:db_start:77 - connected to database
+2024-04-03 15:48:52.449 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-03 15:49:03.357 | INFO     | database.db_action:insert_girl_data:100 - Data for user 462813109 inserted successfully.
+2024-04-03 15:49:41.513 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-04-03 15:49:43.442 | INFO     | __main__:start_params:17 - Bot started
+2024-04-03 15:49:44.029 | INFO     | database.db_action:db_start:77 - connected to database
+2024-04-03 15:49:54.479 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-03 15:50:03.999 | INFO     | database.db_action:insert_girl_data:100 - Data for user 462813109 inserted successfully.
+2024-04-03 15:50:38.449 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-04-03 15:50:40.354 | INFO     | __main__:start_params:17 - Bot started
+2024-04-03 15:50:41.054 | INFO     | database.db_action:db_start:77 - connected to database
+2024-04-03 15:50:53.853 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-03 15:51:02.320 | INFO     | database.db_action:insert_girl_data:100 - Data for user 462813109 inserted successfully.
+2024-04-03 15:52:31.738 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-04-03 15:52:33.653 | INFO     | __main__:start_params:17 - Bot started
+2024-04-03 15:52:34.242 | INFO     | database.db_action:db_start:78 - connected to database
+2024-04-03 15:52:53.757 | WARNING  | __main__:<module>:39 - Bot stopped
+2024-04-04 13:54:03.488 | INFO     | __main__:start_params:18 - Bot started
+2024-04-04 13:54:04.495 | INFO     | database.db_action:db_start:78 - connected to database
+2024-04-04 13:54:53.799 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-04 13:54:55.717 | INFO     | __main__:start_params:18 - Bot started
+2024-04-04 13:54:56.485 | INFO     | database.db_action:db_start:78 - connected to database
+2024-04-04 13:58:41.321 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-04 13:58:43.216 | INFO     | __main__:start_params:18 - Bot started
+2024-04-04 13:58:43.943 | INFO     | database.db_action:db_start:78 - connected to database
+2024-04-04 13:59:28.446 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-04 13:59:30.346 | INFO     | __main__:start_params:18 - Bot started
+2024-04-04 13:59:31.059 | INFO     | database.db_action:db_start:78 - connected to database
+2024-04-04 14:01:14.584 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-04 14:01:16.602 | INFO     | __main__:start_params:18 - Bot started
+2024-04-04 14:01:17.397 | INFO     | database.db_action:db_start:78 - connected to database
+2024-04-04 14:01:28.355 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-04 14:01:30.297 | INFO     | __main__:start_params:18 - Bot started
+2024-04-04 14:01:31.130 | INFO     | database.db_action:db_start:78 - connected to database
+2024-04-04 14:01:32.656 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 14:02:30.881 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-04 14:02:32.787 | INFO     | __main__:start_params:18 - Bot started
+2024-04-04 14:02:33.671 | INFO     | database.db_action:db_start:78 - connected to database
+2024-04-04 14:02:35.000 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 14:02:58.666 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-04 14:03:16.950 | INFO     | database.db_action:insert_girl_data:101 - Data for user 462813109 inserted successfully.
+2024-04-04 14:04:21.682 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 14:07:36.152 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-04 14:07:38.066 | INFO     | __main__:start_params:18 - Bot started
+2024-04-04 14:07:38.725 | INFO     | database.db_action:db_start:78 - connected to database
+2024-04-04 14:07:39.932 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 14:07:44.733 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 14:08:01.704 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-04 14:08:12.732 | INFO     | database.db_action:insert_girl_data:101 - Data for user 462813109 inserted successfully.
+2024-04-04 14:24:55.680 | INFO     | __main__:start_params:18 - Bot started
+2024-04-04 14:24:56.558 | INFO     | database.db_action:db_start:78 - connected to database
+2024-04-04 14:24:57.431 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 14:25:14.189 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-04 14:25:26.445 | INFO     | database.db_action:insert_girl_data:101 - Data for user 462813109 inserted successfully.
+2024-04-04 14:37:15.327 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-04 14:37:17.437 | INFO     | __main__:start_params:18 - Bot started
+2024-04-04 14:37:18.325 | INFO     | database.db_action:db_start:79 - connected to database
+2024-04-04 14:37:22.756 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 14:37:24.917 | ERROR    | handlers.edit_form:p_forms:35 - 'NoneType' object is not subscriptable
+2024-04-04 14:37:51.774 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-04 14:37:53.977 | INFO     | __main__:start_params:18 - Bot started
+2024-04-04 14:37:54.918 | INFO     | database.db_action:db_start:79 - connected to database
+2024-04-04 14:38:35.172 | WARNING  | __main__:<module>:40 - Bot stopped
+2024-04-04 14:38:37.244 | INFO     | __main__:start_params:19 - Bot started
+2024-04-04 14:38:38.099 | INFO     | database.db_action:db_start:79 - connected to database
+2024-04-04 14:38:39.554 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 14:38:44.377 | ERROR    | handlers.edit_form:p_forms:35 - 'NoneType' object is not subscriptable
+2024-04-04 14:38:46.025 | ERROR    | handlers.girl_lk:p_girls_lk:32 - Database.get_girl_data() missing 1 required positional argument: 'user_id'
+2024-04-04 14:38:54.124 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 14:41:55.511 | WARNING  | __main__:<module>:41 - Bot stopped
+2024-04-04 14:41:57.740 | INFO     | __main__:start_params:20 - Bot started
+2024-04-04 14:41:58.594 | INFO     | database.db_action:db_start:79 - connected to database
+2024-04-04 14:42:02.012 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 14:42:07.353 | ERROR    | handlers.girl_lk:p_girls_lk:32 - Database.get_girl_data() missing 1 required positional argument: 'user_id'
+2024-04-04 14:42:07.857 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 14:42:14.138 | ERROR    | handlers.edit_form:p_forms:35 - 'NoneType' object is not subscriptable
+2024-04-04 14:42:15.658 | ERROR    | handlers.girl_lk:p_girls_lk:32 - Database.get_girl_data() missing 1 required positional argument: 'user_id'
+2024-04-04 14:42:18.334 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 14:42:30.743 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 14:42:36.880 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 14:43:03.720 | WARNING  | __main__:<module>:42 - Bot stopped
+2024-04-04 14:43:05.794 | INFO     | __main__:start_params:20 - Bot started
+2024-04-04 14:43:06.576 | INFO     | database.db_action:db_start:79 - connected to database
+2024-04-04 14:43:08.465 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 14:43:15.904 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 16:58:56.618 | WARNING  | __main__:<module>:42 - Bot stopped
+2024-04-04 19:32:43.801 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 19:32:44.686 | INFO     | database.db_action:db_start:91 - connected to database
+2024-04-04 19:33:31.382 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 19:33:54.468 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 19:33:55.163 | INFO     | database.db_action:db_start:91 - connected to database
+2024-04-04 19:34:58.235 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 19:35:00.258 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 19:35:00.939 | INFO     | database.db_action:db_start:91 - connected to database
+2024-04-04 19:35:35.536 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 19:35:37.657 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 19:35:38.309 | INFO     | database.db_action:db_start:91 - connected to database
+2024-04-04 19:40:48.070 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 19:40:50.040 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 19:40:50.826 | INFO     | database.db_action:db_start:91 - connected to database
+2024-04-04 19:41:23.343 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 19:41:57.279 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-04 19:42:10.451 | INFO     | database.db_action:insert_girl_data:114 - Data for user 462813109 inserted successfully.
+2024-04-04 19:42:33.215 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-04 19:43:24.866 | INFO     | database.db_action:insert_girl_data:114 - Data for user 462813109 inserted successfully.
+2024-04-04 19:43:32.526 | ERROR    | handlers.girl_lk:p_girls_lk:32 - Database.get_girl_data() missing 1 required positional argument: 'user_id'
+2024-04-04 19:43:56.281 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 19:43:58.423 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 19:43:59.081 | INFO     | database.db_action:db_start:91 - connected to database
+2024-04-04 19:45:22.969 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 19:46:35.510 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 19:46:37.474 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 19:46:38.381 | INFO     | database.db_action:db_start:91 - connected to database
+2024-04-04 19:46:40.656 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 19:47:24.736 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 19:47:26.691 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 19:47:27.391 | INFO     | database.db_action:db_start:91 - connected to database
+2024-04-04 19:47:28.867 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 19:47:32.638 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 19:47:40.621 | INFO     | database.db_action:create_withdraw_request:145 - Withdraw request for user 462813109 created successfully.
+2024-04-04 19:50:51.668 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 19:50:53.893 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 19:50:54.620 | INFO     | database.db_action:db_start:91 - connected to database
+2024-04-04 19:50:57.286 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 19:51:01.319 | INFO     | database.db_action:create_withdraw_request:145 - Withdraw request for user 462813109 created successfully.
+2024-04-04 19:51:15.221 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 19:51:17.184 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 19:51:17.923 | INFO     | database.db_action:db_start:91 - connected to database
+2024-04-04 19:51:23.811 | INFO     | database.db_action:create_withdraw_request:145 - Withdraw request for user 462813109 created successfully.
+2024-04-04 19:54:28.570 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 19:54:30.513 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 19:54:31.331 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 19:54:32.689 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 19:55:39.208 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 19:55:41.192 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 19:55:41.947 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 19:55:46.016 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 19:56:25.381 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 19:56:27.359 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 19:56:28.158 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 19:56:29.499 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 19:57:12.094 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 19:57:14.049 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 19:57:14.746 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 19:57:17.509 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 20:01:33.973 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 20:01:35.940 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 20:01:36.758 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 20:01:37.603 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 20:03:21.500 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 20:03:23.448 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 20:03:24.205 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 20:05:12.720 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 20:05:14.652 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 20:05:15.445 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 20:05:37.501 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 20:05:39.442 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 20:05:40.179 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 20:05:41.238 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 20:44:31.895 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 20:44:34.630 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 20:44:36.760 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 20:44:37.447 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 20:44:45.011 | INFO     | database.db_action:create_withdraw_request:153 - Withdraw request for user 462813109 created successfully.
+2024-04-04 20:46:24.862 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 20:46:26.839 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 20:46:27.581 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 20:46:29.639 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 20:46:32.850 | INFO     | database.db_action:create_withdraw_request:150 - Withdraw request for user 462813109 created successfully.
+2024-04-04 20:50:28.622 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 20:50:30.595 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 20:50:31.251 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 20:51:23.510 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 20:51:46.804 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 20:51:48.747 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 20:51:49.520 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 20:52:12.665 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 20:52:18.056 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 20:53:30.928 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 20:54:51.179 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 20:54:53.329 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 20:54:54.099 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 20:54:56.800 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 20:56:29.279 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 20:56:59.622 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-04 20:57:23.347 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-04 20:57:44.775 | INFO     | database.db_action:insert_girl_data:128 - Data for user 462813109 inserted successfully.
+2024-04-04 21:00:47.132 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:00:49.904 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:00:50.553 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:00:53.863 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 21:01:23.535 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:01:25.898 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:01:26.578 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:01:27.854 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 21:01:47.408 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:01:49.454 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:01:50.337 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:01:53.820 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 21:02:06.982 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 21:03:04.641 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:03:06.693 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:03:07.356 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:03:08.150 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 21:03:23.632 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:03:25.669 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:03:26.365 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:03:31.322 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-04 21:05:13.880 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:05:15.945 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:05:16.743 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:05:20.358 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:05:31.464 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:05:33.436 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:05:34.079 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:05:35.931 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:05:42.375 | ERROR    | handlers.girl_lk:p_girls_lk:32 - Telegram server says - Bad Request: there is no text in the message to edit
+2024-04-04 21:06:54.660 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:06:56.674 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:06:57.380 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:06:59.089 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:07:14.818 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-04 21:07:29.744 | INFO     | database.db_action:insert_girl_data:128 - Data for user 462813109 inserted successfully.
+2024-04-04 21:07:41.169 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:07:51.738 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:13:00.862 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:13:03.147 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:13:03.896 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:13:30.623 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:13:32.729 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:13:33.465 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:13:34.449 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:13:36.530 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:13:37.219 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:13:48.833 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:13:50.984 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:13:51.654 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:13:54.382 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:14:15.543 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:14:17.732 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:14:18.445 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:14:30.530 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:14:32.513 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:14:33.204 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:19:35.455 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:19:37.591 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:19:38.293 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:19:49.640 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:19:51.767 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:19:52.474 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:24:29.896 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:24:31.968 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:24:32.793 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:24:34.514 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:25:14.037 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:25:16.195 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:25:16.912 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:25:18.355 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:25:36.418 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:25:38.434 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:25:39.156 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:25:41.318 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:26:20.020 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:26:22.180 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:26:22.906 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:26:27.830 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:28:26.841 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:28:29.138 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:28:29.871 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:28:30.948 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:29:57.309 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:29:59.510 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:30:00.227 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:30:02.145 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:30:04.390 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:30:05.182 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:30:07.259 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:30:15.440 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:30:17.535 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:30:18.257 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:30:20.837 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:31:14.267 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:31:16.416 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:31:17.159 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:31:31.398 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:32:46.545 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:32:48.765 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:32:49.464 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:32:51.310 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:33:15.586 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:33:17.631 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:33:18.353 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:33:19.388 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:34:48.994 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:34:51.130 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:34:51.932 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:34:54.352 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:34:56.408 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:34:57.114 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:34:59.785 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:36:09.051 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:36:11.269 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:36:12.046 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:36:15.025 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:36:38.198 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:36:40.178 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:36:40.896 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:36:43.269 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:37:17.613 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:37:19.641 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:37:20.410 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:37:24.933 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:37:41.342 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:37:43.386 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:37:44.106 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:37:46.357 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:38:47.923 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:38:50.016 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:38:50.713 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:38:54.075 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:39:23.323 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:39:25.343 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:39:26.197 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:39:29.801 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:40:04.562 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:40:06.655 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:40:07.440 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:40:08.705 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:41:29.153 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:41:31.210 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:41:31.989 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:41:34.102 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:42:03.755 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:42:05.751 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:42:06.465 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:42:08.238 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:42:26.110 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:42:28.290 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:42:29.015 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:42:33.083 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:43:03.938 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:43:06.035 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:43:06.771 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:43:07.822 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:43:57.292 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:43:59.474 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:44:00.307 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:44:32.626 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-04 21:44:35.723 | INFO     | __main__:start_params:21 - Bot started
+2024-04-04 21:44:36.392 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-04 21:44:37.600 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:44:59.078 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-04 21:45:07.173 | INFO     | database.db_action:insert_girl_data:144 - Data for user 462813109 inserted successfully.
+2024-04-04 21:46:17.580 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:46:19.030 | ERROR    | handlers.edit_form:p_forms:35 - 'NoneType' object is not subscriptable
+2024-04-04 21:46:21.046 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:46:23.587 | ERROR    | handlers.edit_form:p_forms:35 - 'NoneType' object is not subscriptable
+2024-04-04 21:46:24.784 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 21:46:33.147 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-04 21:46:44.995 | INFO     | database.db_action:insert_girl_data:144 - Data for user 462813109 inserted successfully.
+2024-04-04 22:16:25.825 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-04 22:28:28.039 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-05 19:13:00.054 | INFO     | __main__:start_params:21 - Bot started
+2024-04-05 19:13:00.807 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-05 19:13:03.943 | INFO     | handlers.start:process_start:25 - User connected: Jisierk
+2024-04-05 19:13:14.803 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-05 19:13:23.954 | INFO     | database.db_action:insert_girl_data:145 - Data for user 462813109 inserted successfully.
+2024-04-05 19:22:46.977 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-05 19:22:49.095 | INFO     | __main__:start_params:21 - Bot started
+2024-04-05 19:22:49.982 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-05 19:23:06.139 | INFO     | handlers.create_form:check_folder:29 - Папка 462813109 уже существует.
+2024-04-05 19:23:14.906 | INFO     | database.db_action:insert_girl_data:145 - Data for user 462813109 inserted successfully.
+2024-04-05 20:24:18.489 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-05 20:24:20.870 | INFO     | __main__:start_params:21 - Bot started
+2024-04-05 20:24:21.574 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-05 20:24:36.827 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-04-05 20:24:58.135 | INFO     | handlers.create_form:check_folder:26 - Папка 6627991550 успешно создана.
+2024-04-05 20:25:07.853 | INFO     | database.db_action:insert_girl_data:145 - Data for user 6627991550 inserted successfully.
+2024-04-05 20:25:33.356 | INFO     | handlers.start:process_start:24 - User connected: alexand3r_mavrin
+2024-04-05 20:25:48.614 | INFO     | handlers.create_form:check_folder:26 - Папка 6238255175 успешно создана.
+2024-04-05 20:25:58.454 | INFO     | database.db_action:insert_girl_data:145 - Data for user 6238255175 inserted successfully.
+2024-04-06 18:08:05.228 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-06 18:08:08.313 | INFO     | __main__:start_params:21 - Bot started
+2024-04-06 18:08:08.920 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-06 18:08:33.238 | INFO     | handlers.create_form:check_folder:28 - Папка 462813109 уже существует.
+2024-04-06 18:08:58.293 | INFO     | database.db_action:insert_girl_data:145 - Data for user 462813109 inserted successfully.
+2024-04-06 18:09:31.691 | INFO     | handlers.create_form:check_folder:28 - Папка 6627991550 уже существует.
+2024-04-06 18:09:51.249 | INFO     | database.db_action:insert_girl_data:145 - Data for user 6627991550 inserted successfully.
+2024-04-06 18:49:02.045 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-06 21:38:28.699 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-07 01:28:24.194 | INFO     | __main__:start_params:21 - Bot started
+2024-04-07 01:28:24.849 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-07 15:45:01.645 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-07 16:51:13.820 | INFO     | __main__:start_params:21 - Bot started
+2024-04-07 16:51:14.428 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-07 16:51:21.063 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-07 16:51:23.182 | INFO     | __main__:start_params:21 - Bot started
+2024-04-07 16:51:23.832 | INFO     | database.db_action:db_start:88 - connected to database
+2024-04-10 01:44:11.412 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-11 18:22:46.927 | INFO     | __main__:start_params:21 - Bot started
+2024-04-11 18:22:47.500 | INFO     | database.db_action:db_start:89 - connected to database
+2024-04-11 18:23:03.371 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-11 18:23:05.560 | INFO     | __main__:start_params:21 - Bot started
+2024-04-11 18:23:06.086 | INFO     | database.db_action:db_start:89 - connected to database
+2024-04-11 18:23:51.002 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-11 18:24:19.258 | INFO     | handlers.create_form:check_folder:28 - Папка 462813109 уже существует.
+2024-04-11 18:24:42.377 | INFO     | database.db_action:insert_girl_data:146 - Data for user 462813109 inserted successfully.
+2024-04-11 18:26:30.392 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-11 18:26:32.588 | INFO     | __main__:start_params:21 - Bot started
+2024-04-11 18:26:33.118 | INFO     | database.db_action:db_start:89 - connected to database
+2024-04-11 18:27:47.741 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-11 18:27:50.049 | INFO     | __main__:start_params:21 - Bot started
+2024-04-11 18:27:50.601 | INFO     | database.db_action:db_start:89 - connected to database
+2024-04-11 18:28:09.323 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-11 18:28:11.413 | INFO     | __main__:start_params:21 - Bot started
+2024-04-11 18:28:11.981 | INFO     | database.db_action:db_start:89 - connected to database
+2024-04-11 18:28:13.396 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-11 18:28:30.391 | INFO     | handlers.create_form:check_folder:28 - Папка 462813109 уже существует.
+2024-04-11 18:28:43.308 | INFO     | database.db_action:insert_girl_data:147 - Data for user 462813109 inserted successfully.
+2024-04-11 18:29:03.963 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-11 18:29:06.269 | INFO     | __main__:start_params:21 - Bot started
+2024-04-11 18:29:06.822 | INFO     | database.db_action:db_start:89 - connected to database
+2024-04-11 18:29:07.570 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-11 18:29:13.168 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-11 18:29:14.616 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-11 18:29:30.704 | INFO     | handlers.create_form:check_folder:28 - Папка 462813109 уже существует.
+2024-04-11 18:31:26.095 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-11 18:31:28.314 | INFO     | __main__:start_params:21 - Bot started
+2024-04-11 18:31:28.828 | INFO     | database.db_action:db_start:89 - connected to database
+2024-04-11 18:31:30.531 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-11 18:31:40.739 | INFO     | handlers.create_form:check_folder:28 - Папка 462813109 уже существует.
+2024-04-11 18:32:11.871 | INFO     | database.db_action:insert_girl_data:147 - Data for user 462813109 inserted successfully.
+2024-04-11 20:14:38.790 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-04-11 20:14:43.445 | ERROR    | handlers.edit_form:p_forms:32 - 'NoneType' object is not subscriptable
+2024-04-11 20:15:02.011 | INFO     | handlers.create_form:check_folder:28 - Папка 6627991550 уже существует.
+2024-04-11 20:15:18.481 | INFO     | database.db_action:insert_girl_data:147 - Data for user 6627991550 inserted successfully.
+2024-04-11 20:15:35.692 | INFO     | handlers.create_form:check_folder:28 - Папка 6627991550 уже существует.
+2024-04-11 20:15:45.409 | INFO     | database.db_action:insert_girl_data:147 - Data for user 6627991550 inserted successfully.
+2024-04-12 15:08:58.108 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-12 18:27:14.435 | INFO     | __main__:start_params:21 - Bot started
+2024-04-12 18:27:15.258 | INFO     | database.db_action:db_start:89 - connected to database
+2024-04-12 20:45:46.753 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-04-13 12:17:40.347 | INFO     | handlers.start:process_start:24 - User connected: stepusiks
+2024-04-13 13:49:12.724 | INFO     | handlers.create_form:check_folder:26 - Папка 232513454 успешно создана.
+2024-04-13 13:52:09.452 | INFO     | handlers.create_form:check_folder:28 - Папка 232513454 уже существует.
+2024-04-13 13:54:06.287 | INFO     | database.db_action:insert_girl_data:147 - Data for user 232513454 inserted successfully.
+2024-04-13 13:54:27.754 | INFO     | database.db_action:delete_form:107 - Form 232513454 deleted
+2024-04-14 18:40:38.002 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-04-14 18:40:47.933 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-15 23:04:46.295 | INFO     | handlers.start:process_start:24 - User connected: stepusiks
+2024-04-15 23:05:10.364 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-04-15 23:05:14.591 | INFO     | __main__:start_params:21 - Bot started
+2024-04-15 23:05:15.154 | INFO     | database.db_action:db_start:89 - connected to database
+2024-04-15 23:15:49.453 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-04-17 15:40:06.589 | INFO     | handlers.create_form:check_folder:28 - Папка 232513454 уже существует.
+2024-04-17 15:44:41.765 | INFO     | handlers.start:process_start:24 - User connected: stepusiks
+2024-04-17 15:44:44.114 | ERROR    | handlers.girl_lk:p_girls_lk:32 - 'NoneType' object is not subscriptable
+2024-04-17 15:44:46.416 | ERROR    | handlers.edit_form:p_forms:32 - 'NoneType' object is not subscriptable
+2024-04-21 16:56:07.565 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-05-05 22:02:29.308 | INFO     | __main__:start_params:21 - Bot started
+2024-05-05 22:02:30.473 | INFO     | database.db_action:db_start:89 - connected to database
+2024-05-05 22:03:05.927 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-05-06 13:29:23.441 | INFO     | __main__:start_params:21 - Bot started
+2024-05-06 13:29:24.211 | INFO     | database.db_action:db_start:89 - connected to database
+2024-05-07 00:11:51.424 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-05-07 13:12:19.979 | INFO     | __main__:start_params:21 - Bot started
+2024-05-07 13:12:20.538 | INFO     | database.db_action:db_start:89 - connected to database
+2024-05-07 15:58:40.293 | INFO     | handlers.start:process_start:24 - User connected: stepusiks
+2024-05-07 15:59:29.539 | INFO     | handlers.start:process_start:24 - User connected: UleriTg
+2024-05-07 16:13:21.336 | INFO     | handlers.create_form:check_folder:26 - Папка 512045540 успешно создана.
+2024-05-07 16:15:31.539 | INFO     | database.db_action:insert_girl_data:147 - Data for user 512045540 inserted successfully.
+2024-05-08 13:33:01.079 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-05-30 16:33:19.814 | INFO     | __main__:start_params:21 - Bot started
+2024-05-30 16:33:20.625 | INFO     | database.db_action:db_start:89 - connected to database
+2024-05-31 10:35:47.862 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-06-03 14:27:54.588 | INFO     | __main__:start_params:21 - Bot started
+2024-06-03 14:27:55.114 | INFO     | database.db_action:db_start:89 - connected to database
+2024-06-03 14:28:12.941 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-03 14:28:31.384 | INFO     | handlers.create_form:check_folder:28 - Папка 6627991550 уже существует.
+2024-06-03 14:28:47.907 | INFO     | database.db_action:insert_girl_data:147 - Data for user 6627991550 inserted successfully.
+2024-06-04 13:44:04.076 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-06-07 13:29:15.277 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-06-07 16:48:43.889 | WARNING  | __main__:<module>:43 - Bot stopped
+2024-06-07 16:48:48.027 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 16:48:48.695 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 16:48:52.390 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 16:49:19.221 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 16:49:19.880 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 16:49:30.140 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-06-07 16:54:28.244 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-06-07 16:54:54.350 | INFO     | database.db_action:delete_form:117 - Form 6627991550 deleted
+2024-06-07 16:54:56.339 | INFO     | database.db_action:delete_form:117 - Form 462813109 deleted
+2024-06-07 16:54:57.895 | INFO     | database.db_action:delete_form:117 - Form 512045540 deleted
+2024-06-07 16:55:00.711 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-06-07 16:55:43.678 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 16:55:47.111 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 16:55:47.760 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 16:55:48.674 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-06-07 16:55:58.021 | ERROR    | handlers.girl_lk:p_girls_lk:32 - 'NoneType' object is not subscriptable
+2024-06-07 16:57:31.988 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 16:58:04.793 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 16:58:05.407 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 16:58:09.600 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-06-07 16:58:14.164 | ERROR    | handlers.girl_lk:p_girls_lk:32 - 'NoneType' object is not subscriptable
+2024-06-07 16:58:18.708 | ERROR    | handlers.edit_form:p_forms:32 - 'NoneType' object is not subscriptable
+2024-06-07 17:02:10.509 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-06-07 17:02:19.036 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:02:45.783 | INFO     | handlers.create_form:check_folder:28 - Папка 6627991550 уже существует.
+2024-06-07 17:03:19.944 | INFO     | database.db_action:insert_girl_data:157 - Data for user 6627991550 inserted successfully.
+2024-06-07 17:05:35.817 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 17:05:38.225 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 17:05:38.730 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 17:05:39.236 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:06:37.762 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 17:06:39.944 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 17:06:40.512 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 17:06:42.434 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:06:59.796 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:07:09.163 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 17:07:11.273 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 17:07:11.851 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 17:07:12.391 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:08:04.278 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 17:08:06.501 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 17:08:07.097 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 17:08:08.228 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:10:15.050 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 17:10:17.352 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 17:10:18.049 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 17:10:19.472 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:10:24.807 | INFO     | utils.scheduler:schedule_task:19 - Task <function inform_status at 0x0000012955EF5580> scheduled to run at 2024-06-07 17:10:26.806035
+2024-06-07 17:10:38.441 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:14:11.753 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 17:14:14.091 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 17:14:14.580 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 17:14:15.112 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:14:46.466 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 17:14:48.672 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 17:14:49.135 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 17:14:52.207 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:17:13.556 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 17:17:15.738 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 17:17:16.209 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 17:17:16.804 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:18:28.581 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 17:18:30.893 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 17:18:31.444 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 17:18:33.214 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:22:48.330 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 17:22:50.499 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 17:22:50.980 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 17:22:51.764 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:23:16.048 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 17:23:23.631 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 17:23:24.128 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 17:23:25.006 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:23:54.464 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 17:23:56.784 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 17:23:57.350 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 17:23:59.415 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:24:16.138 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 17:24:18.325 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 17:24:18.844 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 17:24:22.898 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:24:30.688 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-07 17:24:32.909 | INFO     | __main__:start_params:22 - Bot started
+2024-06-07 17:24:33.395 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-07 17:24:39.044 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:24:43.986 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-07 17:25:06.696 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-10 13:57:12.778 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-10 13:57:23.998 | INFO     | utils.scheduler:schedule_task:19 - Task <function inform_status at 0x000001ADF43954E0> scheduled to run at 2024-06-10 13:57:28.993193
+2024-06-10 14:01:34.028 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-10 14:01:38.757 | INFO     | __main__:start_params:22 - Bot started
+2024-06-10 14:01:39.508 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-10 14:02:33.335 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-10 14:02:47.340 | INFO     | utils.scheduler:schedule_task:19 - Task <function inform_status at 0x00000202D05B54E0> scheduled to run at 2024-06-10 16:02:47.338221
+2024-06-10 14:03:01.028 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-10 14:03:17.743 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-10 14:03:27.407 | INFO     | utils.scheduler:schedule_task:19 - Task <function inform_status at 0x00000202D05B54E0> scheduled to run at 2024-06-10 19:03:27.406650
+2024-06-10 14:03:36.532 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-10 16:39:28.488 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-10 16:39:43.996 | INFO     | utils.scheduler:schedule_task:19 - Task <function inform_status at 0x00000202D05B54E0> scheduled to run at 2024-06-10 21:39:43.996865
+2024-06-10 16:39:48.844 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-10 16:53:02.987 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-06-10 16:53:04.969 | ERROR    | handlers.edit_form:p_forms:32 - 'NoneType' object is not subscriptable
+2024-06-10 21:09:10.008 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-11 19:51:06.485 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-11 19:51:12.989 | INFO     | __main__:start_params:22 - Bot started
+2024-06-11 19:51:13.898 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-12 22:47:57.742 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-12 22:48:00.867 | INFO     | __main__:start_params:22 - Bot started
+2024-06-12 22:48:01.524 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-12 22:50:14.742 | WARNING  | __main__:<module>:44 - Bot stopped
+2024-06-12 22:50:17.476 | INFO     | __main__:start_params:22 - Bot started
+2024-06-12 22:50:18.124 | INFO     | database.db_action:db_start:99 - connected to database
+2024-06-12 22:50:22.152 | INFO     | handlers.start:process_start:24 - User connected: Jisierk
+2024-06-13 15:58:59.797 | INFO     | handlers.start:process_start:24 - User connected: stepusiks
+2024-06-13 22:50:45.056 | INFO     | handlers.start:process_start:24 - User connected: stepusiks
+2024-06-13 23:22:17.679 | ERROR    | handlers.girl_lk:p_girls_lk:32 - 'NoneType' object is not subscriptable
+2024-06-13 23:33:35.083 | INFO     | handlers.create_form:check_folder:28 - Папка 232513454 уже существует.
+2024-06-13 23:33:47.104 | INFO     | database.db_action:insert_girl_data:157 - Data for user 232513454 inserted successfully.
+2024-06-13 23:34:05.405 | INFO     | utils.scheduler:schedule_task:19 - Task <function inform_status at 0x0000018CDFAE5440> scheduled to run at 2024-06-14 05:34:05.405943
+2024-06-14 17:41:03.726 | INFO     | utils.scheduler:schedule_task:19 - Task <function inform_status at 0x0000018CDFAE5440> scheduled to run at 2024-06-14 19:41:03.726934
+2024-06-14 17:41:14.592 | INFO     | handlers.start:process_start:24 - User connected: ykoroii
+2024-06-14 19:55:11.371 | WARNING  | __main__:<module>:44 - Bot stopped

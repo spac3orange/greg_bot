@@ -25,7 +25,8 @@ async def process_start(message: Message, state: FSMContext):
 
 
 @router.callback_query(F.data == 'back_to_main')
-async def p_bctm(callback: Message):
+async def p_bctm(callback: CallbackQuery):
+    await callback.answer()
     uid = callback.from_user.id
     media = await parse_media()
     await callback.message.reply_photo(photo=media, caption='<b>Добро пожаловать</b>', reply_markup=main_kb.start_btns(uid))

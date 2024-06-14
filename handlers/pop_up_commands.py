@@ -17,4 +17,4 @@ router.message.filter(
 @router.message(Command('support'))
 async def p_sup(message: Message, state: FSMContext):
     await state.clear()
-    await message.answer('Тех. Поддержка: @None')
+    await message.answer('Тех. Поддержка: @stepusiks')

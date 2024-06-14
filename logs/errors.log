@@ -12,3 +12,8 @@
 2024-04-11 20:14:43.445 | ERROR    | handlers.edit_form:p_forms:32 - 'NoneType' object is not subscriptable
 2024-04-17 15:44:44.114 | ERROR    | handlers.girl_lk:p_girls_lk:32 - 'NoneType' object is not subscriptable
 2024-04-17 15:44:46.416 | ERROR    | handlers.edit_form:p_forms:32 - 'NoneType' object is not subscriptable
+2024-06-07 16:55:58.021 | ERROR    | handlers.girl_lk:p_girls_lk:32 - 'NoneType' object is not subscriptable
+2024-06-07 16:58:14.164 | ERROR    | handlers.girl_lk:p_girls_lk:32 - 'NoneType' object is not subscriptable
+2024-06-07 16:58:18.708 | ERROR    | handlers.edit_form:p_forms:32 - 'NoneType' object is not subscriptable
+2024-06-10 16:53:04.969 | ERROR    | handlers.edit_form:p_forms:32 - 'NoneType' object is not subscriptable
+2024-06-13 23:22:17.679 | ERROR    | handlers.girl_lk:p_girls_lk:32 - 'NoneType' object is not subscriptable

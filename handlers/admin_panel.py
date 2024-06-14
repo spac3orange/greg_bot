@@ -21,6 +21,7 @@ async def parse_media(path):
 
 @router.callback_query(F.data == 'admin_panel')
 async def p_admin_panel(callback: CallbackQuery):
+    await callback.answer()
     uid = callback.from_user.id
     admins = config_aiogram.admin_id
     await callback.message.answer(f'<b>Admins:</b> {admins}', reply_markup=main_kb.admin_menu())
@@ -68,13 +69,16 @@ async def p_decline_req(callback: CallbackQuery):
 async def p_get_all_forms(callback: CallbackQuery):
     all_girls = await db.get_all_girls()
     await callback.answer()
-    for i in all_girls:
-        del_id = i['user_id']
-        media = await parse_media(i['avatar_path'])
-        full_form = (f'{i["name"]}, {i["age"]}'
-                     f'\n<b>Игры:</b> \n{i["games"]}'
-                     f'\n{i['description']}')
-        await callback.message.answer_photo(photo=media, caption=full_form, reply_markup=main_kb.adm_form_edit(del_id))
+    if all_girls:
+        for i in all_girls:
+            del_id = i['user_id']
+            media = await parse_media(i['avatar_path'])
+            full_form = (f'{i["name"]}, {i["age"]}'
+                         f'\n<b>Игры:</b> \n{i["games"]}'
+                         f'\n{i['description']}')
+            await callback.message.answer_photo(photo=media, caption=full_form, reply_markup=main_kb.adm_form_edit(del_id))
+    else:
+        await callback.message.answer('Анкеты не найдены.')
 
 
 @router.callback_query(F.data.startswith('adm_del_form_'))
