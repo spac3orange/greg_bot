@@ -4,30 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59dd9f87-e1d0-475f-bd06-f306f74a5e19" name="Changes" comment="v 1.0">
-      <change afterPath="$PROJECT_DIR$/.idea/girl_reg_bot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="59dd9f87-e1d0-475f-bd06-f306f74a5e19" name="Changes" comment="v 2.0 final">
       <change afterPath="$PROJECT_DIR$/config/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/status.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/main_log.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/scheduler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/db_action.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/db_action.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/admin_panel.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/admin_panel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/create_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/create_form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/edit_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/edit_form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/pop_up_commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/pop_up_commands.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/start.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyboards/main_kb.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyboards/main_kb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/errors.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/states/states.py" beforeDir="false" afterPath="$PROJECT_DIR$/states/states.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,11 +117,20 @@
       <option name="project" value="LOCAL" />
       <updated>1713707851718</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="v 2.0 final">
+      <option name="closed" value="true" />
+      <created>1718384129711</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718384129711</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v 1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="v 1.0" />
+    <MESSAGE value="v 2.0 final" />
+    <option name="LAST_COMMIT_MESSAGE" value="v 2.0 final" />
   </component>
 </project>
