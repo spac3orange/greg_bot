@@ -86,6 +86,7 @@ async def p_process_media_group(message: Message, state: FSMContext):
 
     # Получаем текущее количество загруженных файлов из состояния
     media_count = state_data.get('media_count', 0)
+    saved_files = state_data.get('saved_files', [])
 
     # Проверяем количество файлов в альбоме
     if media_count >= 3:
@@ -93,6 +94,7 @@ async def p_process_media_group(message: Message, state: FSMContext):
         return
 
     # Печать содержимого альбома
+    print("Печать содержимого альбома:")
     for msg in album:
         print(f'Message ID: {msg.message_id}, Content Type: {msg.content_type}')
         if msg.content_type == ContentType.PHOTO:
@@ -100,19 +102,68 @@ async def p_process_media_group(message: Message, state: FSMContext):
         elif msg.content_type == ContentType.VIDEO:
             print(f'Video ID: {msg.video.file_id}')
 
-        # Увеличиваем счетчик загруженных файлов
-        media_count += 1
+    uid = message.from_user.id
+    await check_folder(uid)
 
-        # Ограничение на загрузку более 3 файлов
-        if media_count > 3:
-            await message.answer("Вы уже загрузили максимальное количество файлов (3).")
-            return
+    try:
+        # Скачивание и сохранение файлов
+        for msg in album:
+            if media_count >= 3:
+                break
 
-    # Обновляем количество загруженных файлов в состоянии
-    await state.update_data(media_count=media_count)
+            if msg.content_type == ContentType.PHOTO:
+                media_type = 'photo'
+                file_id = msg.photo[-1].file_id
+                file_extension = 'jpg'
+            elif msg.content_type == ContentType.VIDEO:
+                media_type = 'video'
+                file_id = msg.video.file_id
+                file_extension = 'mp4'
+            else:
+                continue
 
-    # Информируем пользователя о количестве загруженных файлов
-    await message.answer(f"Вы загрузили {media_count} из 3 файлов.")
+            file_info = await message.bot.get_file(file_id)
+            if file_info.file_size > 10 * 1024 * 1024:
+                await msg.answer("Файл слишком большой. Пожалуйста, загрузите файл размером не более 10 мегабайт.")
+                continue
+
+            media_name = f'{uid}_{random.randint(1000, 9999)}_{media_type}.{file_extension}'
+            downloaded_file = await message.bot.download_file(file_info.file_path)
+            file_path = f'media/{uid}/{media_name}'
+
+            with open(file_path, 'wb') as media_file:
+                media_file.write(downloaded_file.read())
+
+            # Обновляем состояние с новым файлом
+            media_count += 1
+            saved_files.append(file_path)
+
+            # Ограничение на загрузку более 3 файлов
+            if media_count > 3:
+                await message.answer("Вы уже загрузили максимальное количество файлов (3).")
+                break
+
+        # Обновляем количество загруженных файлов и список сохраненных файлов в состоянии
+        await state.update_data(media_count=media_count, saved_files=saved_files)
+
+        # Информируем пользователя о количестве загруженных файлов
+        await message.answer(f"Вы загрузили {media_count} из 3 файлов.")
+
+        # Если достигнуто максимальное количество файлов, обновляем пути к аватарам и переходим в следующее состояние
+        if media_count >= 3:
+            await state.update_data(avatar_paths=saved_files)
+            game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
+                         'VALORANT': 'game_val', 'APEX': 'game_apex',
+                         'Общение': 'game_talk'}
+            await state.update_data(game_dict=game_dict)
+
+            await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
+            await state.set_state(CreateForm.input_games)
+
+    except Exception as e:
+        print(e)
+        await message.answer('Ошибка при загрузке файла.')
+
 
 
 @router.message(CreateForm.input_photo, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO])
