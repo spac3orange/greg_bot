@@ -87,6 +87,11 @@ async def p_process_media_group(message: Message, state: FSMContext):
     # Получаем текущее количество загруженных файлов из состояния
     media_count = state_data.get('media_count', 0)
     saved_files = state_data.get('saved_files', [])
+    process_completed = state_data.get('process_completed', False)
+
+    # Проверяем, не завершен ли процесс
+    if process_completed:
+        return
 
     # Печать содержимого альбома
     print("Печать содержимого альбома:")
@@ -155,6 +160,9 @@ async def p_process_media_group(message: Message, state: FSMContext):
 
             await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
             await state.set_state(CreateForm.input_games)
+
+            # Помечаем процесс как завершенный
+            await state.update_data(process_completed=True)
 
     except Exception as e:
         print(e)
