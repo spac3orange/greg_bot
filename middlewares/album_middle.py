@@ -4,9 +4,11 @@ from aiogram import BaseMiddleware
 from aiogram.types import Message, TelegramObject
 from cachetools import TTLCache
 
+
 class UserTopicContext:
     def __init__(self):
         self.album: List[Message] = []
+
 
 class AlbumsMiddleware(BaseMiddleware):
     def __init__(self, wait_time_seconds: int):
@@ -52,14 +54,14 @@ class AlbumsMiddleware(BaseMiddleware):
         for item in self.albums_cache[album_id]:
             smallest_message_id = min(smallest_message_id, item.message_id)
 
-        # If current message_id is not the smallest, drop the update;
+        # If current message_id in not the smallest, drop the update;
         # it's already saved in self.albums_cache
         if my_message_id != smallest_message_id:
             return
 
         # If current message_id is the smallest,
         # add all other messages to data and pass to handler
-        context: UserTopicContext = data.setdefault("context", UserTopicContext())
-        context.album = self.albums_cache.pop(album_id, [])
+        context: UserTopicContext = data["context"]
+        context.album = self.albums_cache[album_id]
 
         return await handler(event, data)
