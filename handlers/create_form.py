@@ -238,7 +238,7 @@ async def p_input_description(message: Message, state: FSMContext):
     await state.update_data(price=int(message.text))
     data = await state.get_data()
     print(data)
-    media = await parse_media(data['avatar_path'])
+    media = await parse_media(data['avatar_path1'])
     chosen_games = await compare_dicts(data['game_dict'])
     game_list = []
     for game in chosen_games:
@@ -267,7 +267,7 @@ async def p_form_created(callback: CallbackQuery, state: FSMContext):
     uid, username = callback.from_user.id, callback.from_user.username
     await state.clear()
     # Получение путей к аватарам из состояния
-    avatar_path = data.get('avatar_path', None)
+    avatar_path = data.get('avatar_path1', None)
     avatar_path2 = data.get('avatar_path2', None)
     avatar_path3 = data.get('avatar_path3', None)
     print(avatar_path, avatar_path2, avatar_path3)
