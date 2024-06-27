@@ -74,8 +74,9 @@ async def p_input_age(message: Message, state: FSMContext):
 
 
 @router.message(CreateForm.input_photo, lambda message: message.media_group_id is not None)
-async def p_process_media_group(message: Message, state: FSMContext, data: Dict[str, Any]):
-    context = data.get("context")
+async def p_process_media_group(message: Message, state: FSMContext):
+    state_data = await state.get_data()
+    context = state_data.get("context")
 
     if not context or not context.album:
         await message.answer("Не удалось получить альбом.")
