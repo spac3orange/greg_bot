@@ -102,7 +102,7 @@ async def p_process_media(message: Message, state: FSMContext):
 
         await state.update_data(avatar_path1=f'media/{uid}/{media_name}')
         await state.set_state(CreateForm.input_photo2)
-        await message.answer('Загрузи следующий файл или напиши <b>Далее<b>')
+        await message.answer('Загрузи следующий файл или напиши <b>Далее</b>')
     except Exception as e:
         logger.error(e)
         await message.answer('Ошибка при загрузке файла.')
@@ -146,7 +146,7 @@ async def p_process_media2(message: Message, state: FSMContext):
 
             await state.update_data(avatar_path2=f'media/{uid}/{media_name}')
             await state.set_state(CreateForm.input_photo3)
-            await message.answer('Загрузи следующий файл или напиши <b>Далее<b>')
+            await message.answer('Загрузи следующий файл или напиши <b>Далее</b>')
 
             game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
                          'VALORANT': 'game_val', 'APEX': 'game_apex',
