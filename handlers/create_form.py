@@ -73,13 +73,6 @@ async def p_input_age(message: Message, state: FSMContext):
     await state.set_state(CreateForm.input_photo)
 
 
-from aiogram import Router, types
-from aiogram.dispatcher import FSMContext
-from aiogram.types import Message, ContentType
-from typing import Dict, Any
-
-router = Router()
-
 @router.message(CreateForm.input_photo, lambda message: message.media_group_id is not None)
 async def p_process_media_group(message: Message, state: FSMContext):
     state_data = await state.get_data()
