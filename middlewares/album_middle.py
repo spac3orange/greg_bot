@@ -38,7 +38,7 @@ class AlbumsMiddleware(BaseMiddleware):
         album_id: str = event.media_group_id
 
         async with self.lock:
-            self.albums_cache.setdefault(album_id, list())
+            self.albums_cache.setdefault(album_id, [])
             self.albums_cache[album_id].append(event)
 
         # Wait for some time until other updates are collected
@@ -48,18 +48,21 @@ class AlbumsMiddleware(BaseMiddleware):
         # which will pass to handlers
         my_message_id = smallest_message_id = event.message_id
 
-        item: Message
-        for item in self.albums_cache[album_id]:
-            smallest_message_id = min(smallest_message_id, item.message_id)
+        async with self.lock:
+            if album_id in self.albums_cache:
+                for item in self.albums_cache[album_id]:
+                    smallest_message_id = min(smallest_message_id, item.message_id)
 
-        # If current message_id is not the smallest, drop the update;
-        # it's already saved in self.albums_cache
-        if my_message_id != smallest_message_id:
-            return
+                # If current message_id is not the smallest, drop the update;
+                # it's already saved in self.albums_cache
+                if my_message_id != smallest_message_id:
+                    return
 
-        # If current message_id is the smallest,
-        # add all other messages to data and pass to handler
-        context: UserTopicContext = data.setdefault("context", UserTopicContext())
-        context.album = self.albums_cache.pop(album_id, [])
+                # If current message_id is the smallest,
+                # add all other messages to data and pass to handler
+                context: UserTopicContext = data.setdefault("context", UserTopicContext())
+                context.album = self.albums_cache.pop(album_id, [])
+            else:
+                return
 
         return await handler(event, data)
