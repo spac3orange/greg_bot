@@ -111,7 +111,7 @@ async def p_process_media(message: Message, state: FSMContext):
 @router.message(CreateForm.input_photo2, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO, ContentType.TEXT])
 async def p_process_media2(message: Message, state: FSMContext):
     try:
-        if message.content_type == ContentType.TEXT:
+        if message.text:
             if message.text.lower() == 'далее':
                 game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
                              'VALORANT': 'game_val', 'APEX': 'game_apex',
@@ -165,7 +165,7 @@ async def p_process_media2(message: Message, state: FSMContext):
 @router.message(CreateForm.input_photo3, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO, ContentType.TEXT])
 async def p_process_media3(message: Message, state: FSMContext):
     try:
-        if message.content_type == ContentType.TEXT:
+        if message.text:
             if message.text.lower() == 'далее':
                 game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
                              'VALORANT': 'game_val', 'APEX': 'game_apex',
