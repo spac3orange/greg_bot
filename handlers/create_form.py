@@ -73,6 +73,13 @@ async def p_input_age(message: Message, state: FSMContext):
     await state.set_state(CreateForm.input_photo)
 
 
+from aiogram import Router, types
+from aiogram.dispatcher import FSMContext
+from aiogram.types import Message, ContentType
+from typing import Dict, Any
+
+router = Router()
+
 @router.message(CreateForm.input_photo, lambda message: message.media_group_id is not None)
 async def p_process_media_group(message: Message, state: FSMContext):
     state_data = await state.get_data()
@@ -84,6 +91,14 @@ async def p_process_media_group(message: Message, state: FSMContext):
 
     album = context.album
 
+    # Получаем текущее количество загруженных файлов из состояния
+    media_count = state_data.get('media_count', 0)
+
+    # Проверяем количество файлов в альбоме
+    if media_count >= 3:
+        await message.answer("Вы уже загрузили максимальное количество файлов (3).")
+        return
+
     # Печать содержимого альбома
     for msg in album:
         print(f'Message ID: {msg.message_id}, Content Type: {msg.content_type}')
@@ -92,7 +107,19 @@ async def p_process_media_group(message: Message, state: FSMContext):
         elif msg.content_type == ContentType.VIDEO:
             print(f'Video ID: {msg.video.file_id}')
 
-    # Ваши дальнейшие действия с альбомом
+        # Увеличиваем счетчик загруженных файлов
+        media_count += 1
+
+        # Ограничение на загрузку более 3 файлов
+        if media_count > 3:
+            await message.answer("Вы уже загрузили максимальное количество файлов (3).")
+            return
+
+    # Обновляем количество загруженных файлов в состоянии
+    await state.update_data(media_count=media_count)
+
+    # Информируем пользователя о количестве загруженных файлов
+    await message.answer(f"Вы загрузили {media_count} из 3 файлов.")
 
 
 @router.message(CreateForm.input_photo, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO])
