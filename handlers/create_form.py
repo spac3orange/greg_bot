@@ -237,6 +237,7 @@ async def p_add_price_form(message: Message, state: FSMContext):
 async def p_input_description(message: Message, state: FSMContext):
     await state.update_data(price=int(message.text))
     data = await state.get_data()
+    print(data)
     media = await parse_media(data['avatar_path'])
     chosen_games = await compare_dicts(data['game_dict'])
     game_list = []
