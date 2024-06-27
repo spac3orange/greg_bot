@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59dd9f87-e1d0-475f-bd06-f306f74a5e19" name="Changes" comment="v 3.3 few media added">
+    <list default="true" id="59dd9f87-e1d0-475f-bd06-f306f74a5e19" name="Changes" comment="v 3.4 middle emdia test">
       <change afterPath="$PROJECT_DIR$/config/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/create_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/create_form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/album_middle.py" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/album_middle.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +184,31 @@
       <option name="project" value="LOCAL" />
       <updated>1719500879079</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="v 3.3 few media added">
+      <option name="closed" value="true" />
+      <created>1719501253341</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1719501253341</updated>
+    </task>
+    <task id="LOCAL-00011" summary="v 3.3 few media added">
+      <option name="closed" value="true" />
+      <created>1719501760983</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1719501760983</updated>
+    </task>
+    <task id="LOCAL-00012" summary="v 3.4 middle emdia test">
+      <option name="closed" value="true" />
+      <created>1719507311769</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1719507311769</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -192,6 +217,7 @@
     <MESSAGE value="v 3.1 few media added" />
     <MESSAGE value="v 3.2 few media added" />
     <MESSAGE value="v 3.3 few media added" />
-    <option name="LAST_COMMIT_MESSAGE" value="v 3.3 few media added" />
+    <MESSAGE value="v 3.4 middle emdia test" />
+    <option name="LAST_COMMIT_MESSAGE" value="v 3.4 middle emdia test" />
   </component>
 </project>

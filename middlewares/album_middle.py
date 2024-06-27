@@ -1,6 +1,5 @@
 import asyncio
 from typing import Any, Callable, Dict, Awaitable, List
-
 from aiogram import BaseMiddleware
 from aiogram.types import Message, TelegramObject
 from cachetools import TTLCache

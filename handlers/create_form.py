@@ -11,6 +11,7 @@ import random
 import os
 from aiocache import Cache
 from aiocache.serializers import JsonSerializer
+from typing import Dict, Any
 
 router = Router()
 router.message.filter(
@@ -70,16 +71,72 @@ async def p_input_age(message: Message, state: FSMContext):
     await state.update_data(age=age)
     await message.answer('Теперь пришли фото, или запиши видео (до 15 сек), оно будет отображаться в твоей анкете:')
     await state.set_state(CreateForm.input_photo)
-    # Получение всех сообщений с указанным media_group_id
-    media_group_messages = await message.bot.med
 
 
 @router.message(CreateForm.input_photo, lambda message: message.media_group_id is not None)
-async def p_process_media_group(message: Message, state: FSMContext):
-    uid = message.from_user.id
-    media_group_id = message.media_group_id
-    print(media_group_id)
+async def p_process_media_group(message: Message, state: FSMContext, data: Dict[str, Any]):
+    context = data.get("context")
 
+    if not context or not context.album:
+        await message.answer("Не удалось получить альбом.")
+        return
+
+    uid = message.from_user.id
+
+    # Получаем текущий список медиафайлов из состояния или создаем новый
+    state_data = await state.get_data()
+    media_count = state_data.get('media_count', 0)
+
+    if media_count >= 3:
+        await message.answer("Вы уже загрузили максимальное количество файлов (3).")
+        return
+
+    for msg in context.album:
+        if media_count >= 3:
+            break
+
+        if msg.content_type == ContentType.PHOTO:
+            media_type = 'photo'
+            file_id = msg.photo[-1].file_id
+            file_extension = 'jpg'
+        elif msg.content_type == ContentType.VIDEO:
+            media_type = 'video'
+            file_id = msg.video.file_id
+            file_extension = 'mp4'
+        else:
+            continue
+
+        file_info = await message.bot.get_file(file_id)
+        if file_info.file_size > 10 * 1024 * 1024:
+            await msg.answer("Файл слишком большой. Пожалуйста, загрузите файл размером не более 10 мегабайт.")
+            continue
+
+        media_name = f'{uid}_{random.randint(1000, 9999)}_{media_type}.{file_extension}'
+        downloaded_file = await message.bot.download_file(file_info.file_path)
+        await check_folder(uid)
+        with open(f'media/{uid}/{media_name}', 'wb') as media_file:
+            media_file.write(downloaded_file.read())
+
+        # Обновляем состояние с новым файлом
+        media_count += 1
+        cache_key = f'media_file_{uid}_{media_count}'
+        await cache.set(cache_key, f'media/{uid}/{media_name}')
+        await state.update_data(media_count=media_count)
+
+        print(f'Updated media_count={media_count}')  # Добавлено для отладки
+
+    if media_count >= 3:
+        game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
+                     'VALORANT': 'game_val', 'APEX': 'game_apex',
+                     'Общение': 'game_talk'}
+        await state.update_data(game_dict=game_dict)
+        await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
+        await state.set_state(CreateForm.input_games)
+        # Очистка кэша после завершения загрузки
+        for i in range(1, 4):
+            await cache.delete(f'media_file_{uid}_{i}')
+    else:
+        await message.answer(f'Файл успешно загружен. Вы можете загрузить еще {3 - media_count} файл(а/ов).')
 
 
 @router.message(CreateForm.input_photo, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO])
