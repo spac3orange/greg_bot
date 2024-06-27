@@ -9,9 +9,14 @@ from database import db
 from states.states import CreateForm
 import random
 import os
+from aiocache import Cache
+from aiocache.serializers import JsonSerializer
+
 router = Router()
 router.message.filter(
 )
+
+cache = Cache(Cache.MEMORY, serializer=JsonSerializer())
 
 
 async def go_main(callback):
@@ -71,10 +76,10 @@ async def p_input_age(message: Message, state: FSMContext):
 async def p_process_media_group(message: Message, state: FSMContext):
     uid = message.from_user.id
     media_group_id = message.media_group_id
-    data = await state.get_data()
+    cache_key = f"media_files_{uid}"
 
-    # Получаем текущий список медиафайлов из состояния или создаем новый
-    media_files = data.get('media_files', [])
+    # Получаем текущий список медиафайлов из кэша или создаем новый
+    media_files = await cache.get(cache_key, default=[])
 
     print(f'Initial media_files={media_files}')  # Добавлено для отладки
 
@@ -106,8 +111,8 @@ async def p_process_media_group(message: Message, state: FSMContext):
     media_files.append(f'media/{uid}/{media_name}')
     print(f'Updated media_files={media_files}')  # Добавлено для отладки
 
-    # Обновляем состояние с новым списком медиафайлов
-    await state.update_data({"media_files": media_files})
+    # Обновляем кэш с новым списком медиафайлов
+    await cache.set(cache_key, media_files)
 
     if len(media_files) >= 3:
         game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
@@ -116,6 +121,8 @@ async def p_process_media_group(message: Message, state: FSMContext):
         await state.update_data(game_dict=game_dict)
         await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
         await state.set_state(CreateForm.input_games)
+        # Очистка кэша после завершения загрузки
+        await cache.delete(cache_key)
     else:
         await message.answer(f'Файл {media_name} успешно загружен. Вы можете загрузить еще {3 - len(media_files)} файл(а/ов).')
 
