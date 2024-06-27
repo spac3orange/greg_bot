@@ -108,17 +108,14 @@ async def p_process_media_group(message: Message, state: FSMContext):
 
     media_files.append(f'media/{uid}/{media_name}')
     print(f'{media_files=}')
-    await state.update_data(media_files=media_files)
+    await state.update_data(avatar_path=media_files)
 
-    if len(media_files) < 3:
-        await message.answer(f'Файл {media_name} успешно загружен. Вы можете загрузить еще {3 - len(media_files)} файл(а/ов).')
-    else:
-        game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
-                     'VALORANT': 'game_val', 'APEX': 'game_apex',
-                     'Общение': 'game_talk'}
-        await state.update_data(game_dict=game_dict)
-        await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
-        await state.set_state(CreateForm.input_games)
+    game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
+                 'VALORANT': 'game_val', 'APEX': 'game_apex',
+                 'Общение': 'game_talk'}
+    await state.update_data(game_dict=game_dict)
+    await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
+    await state.set_state(CreateForm.input_games)
 
 
 @router.message(CreateForm.input_photo, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO])
