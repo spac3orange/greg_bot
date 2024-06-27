@@ -73,103 +73,6 @@ async def p_input_age(message: Message, state: FSMContext):
     await state.set_state(CreateForm.input_photo)
 
 
-@router.message(CreateForm.input_photo, lambda message: message.media_group_id is not None)
-async def p_process_media_group(message: Message, state: FSMContext):
-    state_data = await state.get_data()
-    context = state_data.get("context")
-
-    if not context or not context.album:
-        await message.answer("Не удалось получить альбом.")
-        return
-
-    album = context.album
-
-    # Получаем текущее количество загруженных файлов из состояния
-    media_count = state_data.get('media_count', 0)
-    saved_files = state_data.get('saved_files', [])
-    process_completed = state_data.get('process_completed', False)
-
-    # Проверяем, не завершен ли процесс
-    if process_completed:
-        return
-
-    # Печать содержимого альбома
-    print("Печать содержимого альбома:")
-    for msg in album:
-        print(f'Message ID: {msg.message_id}, Content Type: {msg.content_type}')
-        if msg.content_type == ContentType.PHOTO:
-            print(f'Photo ID: {msg.photo[-1].file_id}')
-        elif msg.content_type == ContentType.VIDEO:
-            print(f'Video ID: {msg.video.file_id}')
-
-    uid = message.from_user.id
-    await check_folder(uid)
-
-    try:
-        # Скачивание и сохранение файлов
-        for msg in album:
-            if media_count >= 3:
-                break
-
-            if msg.content_type == ContentType.PHOTO:
-                media_type = 'photo'
-                file_id = msg.photo[-1].file_id
-                file_extension = 'jpg'
-            elif msg.content_type == ContentType.VIDEO:
-                media_type = 'video'
-                file_id = msg.video.file_id
-                file_extension = 'mp4'
-            else:
-                continue
-
-            file_info = await message.bot.get_file(file_id)
-            if file_info.file_size > 10 * 1024 * 1024:
-                await msg.answer("Файл слишком большой. Пожалуйста, загрузите файл размером не более 10 мегабайт.")
-                continue
-
-            media_name = f'{uid}_{random.randint(1000, 9999)}_{media_type}.{file_extension}'
-            downloaded_file = await message.bot.download_file(file_info.file_path)
-            file_path = f'media/{uid}/{media_name}'
-
-            with open(file_path, 'wb') as media_file:
-                media_file.write(downloaded_file.read())
-
-            # Обновляем состояние с новым файлом
-            media_count += 1
-            saved_files.append(file_path)
-
-            # Ограничение на загрузку более 3 файлов
-            if media_count > 3:
-                await message.answer("Вы уже загрузили максимальное количество файлов (3).")
-                break
-
-        # Обновляем количество загруженных файлов и список сохраненных файлов в состоянии
-        await state.update_data(media_count=media_count, saved_files=saved_files)
-
-        # Информируем пользователя о количестве загруженных файлов
-        if media_count <= 3:
-            await message.answer(f"Вы загрузили {media_count} из 3 файлов.")
-
-        # Если загружены файлы, обновляем пути к аватарам и переходим в следующее состояние
-        if media_count >= 1:
-            await state.update_data(avatar_paths=saved_files)
-            game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
-                         'VALORANT': 'game_val', 'APEX': 'game_apex',
-                         'Общение': 'game_talk'}
-            await state.update_data(game_dict=game_dict)
-
-            await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
-            await state.set_state(CreateForm.input_games)
-
-            # Помечаем процесс как завершенный
-            await state.update_data(process_completed=True)
-
-    except Exception as e:
-        print(e)
-        await message.answer('Ошибка при загрузке файла.')
-
-
-
 @router.message(CreateForm.input_photo, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO])
 async def p_process_media(message: Message, state: FSMContext):
     try:
@@ -197,14 +100,112 @@ async def p_process_media(message: Message, state: FSMContext):
         with open(f'media/{uid}/{media_name}', 'wb') as media_file:
             media_file.write(downloaded_file.read())
 
-        await state.update_data(avatar_path=f'media/{uid}/{media_name}')
-        game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
-                     'VALORANT': 'game_val', 'APEX': 'game_apex',
-                     'Общение': 'game_talk'}
-        await state.update_data(game_dict=game_dict)
+        await state.update_data(avatar_path1=f'media/{uid}/{media_name}')
+        await state.set_state(CreateForm.input_photo2)
+        await message.answer('Загрузи следующий файл или напиши <b>Далее<b>')
+    except Exception as e:
+        logger.error(e)
+        await message.answer('Ошибка при загрузке файла.')
 
-        await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
-        await state.set_state(CreateForm.input_games)
+
+@router.message(CreateForm.input_photo2, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO, ContentType.TEXT])
+async def p_process_media2(message: Message, state: FSMContext):
+    try:
+        if message.text.lower() == 'далее':
+            game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
+                         'VALORANT': 'game_val', 'APEX': 'game_apex',
+                         'Общение': 'game_talk'}
+            await state.update_data(game_dict=game_dict)
+
+            await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
+            await state.set_state(CreateForm.input_games)
+        else:
+            uid = message.from_user.id
+            randint = random.randint(1000, 9999)
+
+            if message.content_type == ContentType.PHOTO:
+                media_type = 'photo'
+                file_id = message.photo[-1].file_id
+                file_extension = 'jpg'
+            elif message.content_type == ContentType.VIDEO:
+                media_type = 'video'
+                file_id = message.video.file_id
+                file_extension = 'mp4'
+
+            file_info = await aiogram_bot.get_file(file_id)
+            if file_info.file_size > 10 * 1024 * 1024:
+                await message.answer("Файл слишком большой. Пожалуйста, загрузите файл размером не более 10 мегабайт.")
+                return
+
+            media_name = f'{uid}_{randint}_{media_type}.{file_extension}'
+            file_info = await aiogram_bot.get_file(file_id)
+            downloaded_file = await aiogram_bot.download_file(file_info.file_path)
+            await check_folder(uid)
+            with open(f'media/{uid}/{media_name}', 'wb') as media_file:
+                media_file.write(downloaded_file.read())
+
+            await state.update_data(avatar_path2=f'media/{uid}/{media_name}')
+            await state.set_state(CreateForm.input_photo3)
+            await message.answer('Загрузи следующий файл или напиши <b>Далее<b>')
+
+            game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
+                         'VALORANT': 'game_val', 'APEX': 'game_apex',
+                         'Общение': 'game_talk'}
+            await state.update_data(game_dict=game_dict)
+
+            await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
+            await state.set_state(CreateForm.input_games)
+
+    except Exception as e:
+        logger.error(e)
+        await message.answer('Ошибка при загрузке файла.')
+
+
+@router.message(CreateForm.input_photo3, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO, ContentType.TEXT])
+async def p_process_media3(message: Message, state: FSMContext):
+    try:
+        if message.text.lower() == 'далее':
+            game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
+                         'VALORANT': 'game_val', 'APEX': 'game_apex',
+                         'Общение': 'game_talk'}
+            await state.update_data(game_dict=game_dict)
+
+            await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
+            await state.set_state(CreateForm.input_games)
+        else:
+            uid = message.from_user.id
+            randint = random.randint(1000, 9999)
+
+            if message.content_type == ContentType.PHOTO:
+                media_type = 'photo'
+                file_id = message.photo[-1].file_id
+                file_extension = 'jpg'
+            elif message.content_type == ContentType.VIDEO:
+                media_type = 'video'
+                file_id = message.video.file_id
+                file_extension = 'mp4'
+
+            file_info = await aiogram_bot.get_file(file_id)
+            if file_info.file_size > 10 * 1024 * 1024:
+                await message.answer("Файл слишком большой. Пожалуйста, загрузите файл размером не более 10 мегабайт.")
+                return
+
+            media_name = f'{uid}_{randint}_{media_type}.{file_extension}'
+            file_info = await aiogram_bot.get_file(file_id)
+            downloaded_file = await aiogram_bot.download_file(file_info.file_path)
+            await check_folder(uid)
+            with open(f'media/{uid}/{media_name}', 'wb') as media_file:
+                media_file.write(downloaded_file.read())
+
+            await state.update_data(avatar_path3=f'media/{uid}/{media_name}')
+
+            game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
+                         'VALORANT': 'game_val', 'APEX': 'game_apex',
+                         'Общение': 'game_talk'}
+            await state.update_data(game_dict=game_dict)
+
+            await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
+            await state.set_state(CreateForm.input_games)
 
     except Exception as e:
         logger.error(e)
@@ -270,6 +271,16 @@ async def p_form_created(callback: CallbackQuery, state: FSMContext):
     print(data)
     uid, username = callback.from_user.id, callback.from_user.username
     await state.clear()
+    # Получение путей к аватарам из состояния
+    avatar_path = data.get('avatar_path', None)
+    avatar_path2 = data.get('avatar_path2', None)
+    avatar_path3 = data.get('avatar_path3', None)
+    print(avatar_path, avatar_path2, avatar_path3)
+    # Преобразование путей в абсолютные пути
+    avatar_abspath = os.path.abspath(avatar_path) if avatar_path else None
+    avatar_abspath2 = os.path.abspath(avatar_path2) if avatar_path2 else None
+    avatar_abspath3 = os.path.abspath(avatar_path3) if avatar_path3 else None
+
     avatar_abspath = os.path.abspath(data['avatar_path'])
     await db.insert_girl_data(
         uid, username, data.get('name', 'Uknown'),

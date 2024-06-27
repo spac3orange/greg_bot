@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="59dd9f87-e1d0-475f-bd06-f306f74a5e19" name="Changes" comment="v 3.4 middle emdia test">
       <change afterPath="$PROJECT_DIR$/config/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/create_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/create_form.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -278,7 +279,31 @@
       <option name="project" value="LOCAL" />
       <updated>1719509645218</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="v 3.4 middle emdia test">
+      <option name="closed" value="true" />
+      <created>1719510002370</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1719510002370</updated>
+    </task>
+    <task id="LOCAL-00023" summary="v 3.4 middle emdia test">
+      <option name="closed" value="true" />
+      <created>1719510249414</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1719510249414</updated>
+    </task>
+    <task id="LOCAL-00024" summary="v 3.4 middle emdia test">
+      <option name="closed" value="true" />
+      <created>1719510429356</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1719510429356</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
