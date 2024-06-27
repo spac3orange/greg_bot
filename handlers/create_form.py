@@ -88,11 +88,6 @@ async def p_process_media_group(message: Message, state: FSMContext):
     media_count = state_data.get('media_count', 0)
     saved_files = state_data.get('saved_files', [])
 
-    # Проверяем количество файлов в альбоме
-    if media_count >= 3:
-        await message.answer("Вы уже загрузили максимальное количество файлов (3).")
-        return
-
     # Печать содержимого альбома
     print("Печать содержимого альбома:")
     for msg in album:
@@ -147,10 +142,11 @@ async def p_process_media_group(message: Message, state: FSMContext):
         await state.update_data(media_count=media_count, saved_files=saved_files)
 
         # Информируем пользователя о количестве загруженных файлов
-        await message.answer(f"Вы загрузили {media_count} из 3 файлов.")
+        if media_count <= 3:
+            await message.answer(f"Вы загрузили {media_count} из 3 файлов.")
 
-        # Если достигнуто максимальное количество файлов, обновляем пути к аватарам и переходим в следующее состояние
-        if media_count >= 3:
+        # Если загружены файлы, обновляем пути к аватарам и переходим в следующее состояние
+        if media_count >= 1:
             await state.update_data(avatar_paths=saved_files)
             game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
                          'VALORANT': 'game_val', 'APEX': 'game_apex',
