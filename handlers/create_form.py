@@ -74,7 +74,7 @@ async def p_process_media_group(message: Message, state: FSMContext):
     data = await state.get_data()
 
     # Получаем или создаем список медиафайлов
-    media_files = [data.get(f'avatar_path{i}') for i in range(1, 4) if data.get(f'avatar_path{i}')]
+    media_files = data.get('media_files', [])
 
     if len(media_files) >= 3:
         await message.answer("Вы уже загрузили максимальное количество файлов (3).")
@@ -100,14 +100,12 @@ async def p_process_media_group(message: Message, state: FSMContext):
     with open(f'media/{uid}/{media_name}', 'wb') as media_file:
         media_file.write(downloaded_file.read())
 
-    # Определяем следующий доступный ключ для сохранения
-    next_key = f'avatar_path{len(media_files) + 1}'
-    print(next_key)
-    await state.update_data({next_key: f'media/{uid}/{media_name}'})
-
-    print(f'Сохраненные медиафайлы: {media_files + [f"media/{uid}/{media_name}"]}')
-
+    # Добавляем файл в список
     media_files.append(f'media/{uid}/{media_name}')
+    print(f'{media_files=}')
+
+    # Обновляем состояние
+    await state.update_data(media_files=media_files)
 
     if len(media_files) >= 3:
         game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',

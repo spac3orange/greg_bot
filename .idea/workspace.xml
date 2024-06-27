@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59dd9f87-e1d0-475f-bd06-f306f74a5e19" name="Changes" comment="v 3.1 few media added">
+    <list default="true" id="59dd9f87-e1d0-475f-bd06-f306f74a5e19" name="Changes" comment="v 3.3 few media added">
       <change afterPath="$PROJECT_DIR$/config/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/create_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/create_form.py" afterDir="false" />
     </list>
@@ -142,13 +142,31 @@
       <option name="project" value="LOCAL" />
       <updated>1719495956461</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="v 3.2 few media added">
+      <option name="closed" value="true" />
+      <created>1719497927992</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719497927992</updated>
+    </task>
+    <task id="LOCAL-00006" summary="v 3.3 few media added">
+      <option name="closed" value="true" />
+      <created>1719498179629</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1719498179629</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v 1.0" />
     <MESSAGE value="v 2.0 final" />
     <MESSAGE value="v 3.1 few media added" />
-    <option name="LAST_COMMIT_MESSAGE" value="v 3.1 few media added" />
+    <MESSAGE value="v 3.2 few media added" />
+    <MESSAGE value="v 3.3 few media added" />
+    <option name="LAST_COMMIT_MESSAGE" value="v 3.3 few media added" />
   </component>
 </project>
