@@ -3,6 +3,7 @@ from typing import Any, Callable, Dict, Awaitable, List
 from aiogram import BaseMiddleware
 from aiogram.types import Message, TelegramObject
 from cachetools import TTLCache
+from aiogram.fsm.context import FSMContext
 
 class UserTopicContext:
     def __init__(self):
@@ -60,9 +61,11 @@ class AlbumsMiddleware(BaseMiddleware):
 
                 # If current message_id is the smallest,
                 # add all other messages to data and pass to handler
-                context: UserTopicContext = data.setdefault("context", UserTopicContext())
+                context: UserTopicContext = UserTopicContext()
                 context.album = self.albums_cache.pop(album_id, [])
-            else:
-                return
+
+                # Save the context to FSMContext
+                state: FSMContext = data.get('state')
+                await state.update_data(context=context)
 
         return await handler(event, data)
