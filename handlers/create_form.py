@@ -71,14 +71,12 @@ async def p_input_age(message: Message, state: FSMContext):
 async def p_process_media_group(message: Message, state: FSMContext):
     uid = message.from_user.id
     media_group_id = message.media_group_id
-    files = await state.get_data()
+    data = await state.get_data()
 
     # Получаем или создаем список медиафайлов
-    media_files = files.get('media_files', {})
-    if media_group_id not in media_files:
-        media_files[media_group_id] = []
+    media_files = [data.get(f'avatar_path{i}') for i in range(1, 4) if data.get(f'avatar_path{i}')]
 
-    if len(media_files[media_group_id]) >= 3:
+    if len(media_files) >= 3:
         await message.answer("Вы уже загрузили максимальное количество файлов (3).")
         return
 
@@ -102,12 +100,16 @@ async def p_process_media_group(message: Message, state: FSMContext):
     with open(f'media/{uid}/{media_name}', 'wb') as media_file:
         media_file.write(downloaded_file.read())
 
-    media_files[media_group_id].append(f'media/{uid}/{media_name}')
-    print(f'{media_files=}')
-    await state.update_data(media_files=media_files)
+    # Определяем следующий доступный ключ для сохранения
+    next_key = f'avatar_path{len(media_files) + 1}'
+    print(next_key)
+    await state.update_data({next_key: f'media/{uid}/{media_name}'})
 
-    # Если все файлы загружены, переходим к следующему шагу
-    if len(media_files[media_group_id]) >= 3:
+    print(f'Сохраненные медиафайлы: {media_files + [f"media/{uid}/{media_name}"]}')
+
+    media_files.append(f'media/{uid}/{media_name}')
+
+    if len(media_files) >= 3:
         game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
                      'VALORANT': 'game_val', 'APEX': 'game_apex',
                      'Общение': 'game_talk'}
@@ -115,7 +117,7 @@ async def p_process_media_group(message: Message, state: FSMContext):
         await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
         await state.set_state(CreateForm.input_games)
     else:
-        await message.answer(f'Файл {media_name} успешно загружен. Вы можете загрузить еще {3 - len(media_files[media_group_id])} файл(а/ов).')
+        await message.answer(f'Файл {media_name} успешно загружен. Вы можете загрузить еще {3 - len(media_files)} файл(а/ов).')
 
 
 @router.message(CreateForm.input_photo, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO])
