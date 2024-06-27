@@ -111,14 +111,15 @@ async def p_process_media(message: Message, state: FSMContext):
 @router.message(CreateForm.input_photo2, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO, ContentType.TEXT])
 async def p_process_media2(message: Message, state: FSMContext):
     try:
-        if message.text.lower() == 'далее':
-            game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
-                         'VALORANT': 'game_val', 'APEX': 'game_apex',
-                         'Общение': 'game_talk'}
-            await state.update_data(game_dict=game_dict)
+        if message.content_type == ContentType.TEXT:
+            if message.text.lower() == 'далее':
+                game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
+                             'VALORANT': 'game_val', 'APEX': 'game_apex',
+                             'Общение': 'game_talk'}
+                await state.update_data(game_dict=game_dict)
 
-            await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
-            await state.set_state(CreateForm.input_games)
+                await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
+                await state.set_state(CreateForm.input_games)
         else:
             uid = message.from_user.id
             randint = random.randint(1000, 9999)
@@ -164,14 +165,15 @@ async def p_process_media2(message: Message, state: FSMContext):
 @router.message(CreateForm.input_photo3, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO, ContentType.TEXT])
 async def p_process_media3(message: Message, state: FSMContext):
     try:
-        if message.text.lower() == 'далее':
-            game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
-                         'VALORANT': 'game_val', 'APEX': 'game_apex',
-                         'Общение': 'game_talk'}
-            await state.update_data(game_dict=game_dict)
+        if message.content_type == ContentType.TEXT:
+            if message.text.lower() == 'далее':
+                game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
+                             'VALORANT': 'game_val', 'APEX': 'game_apex',
+                             'Общение': 'game_talk'}
+                await state.update_data(game_dict=game_dict)
 
-            await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
-            await state.set_state(CreateForm.input_games)
+                await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
+                await state.set_state(CreateForm.input_games)
         else:
             uid = message.from_user.id
             randint = random.randint(1000, 9999)
