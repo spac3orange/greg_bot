@@ -6,6 +6,7 @@ from config.logger import logger
 from keyboards import set_commands_menu
 from handlers import start, create_form, edit_form, girl_lk, pop_up_commands, admin_panel, status
 from database import db
+from middlewares import AlbumsMiddleware
 
 
 async def start_params() -> None:
@@ -19,6 +20,7 @@ async def start_params() -> None:
     dp.include_router(pop_up_commands.router)
     # dp.include_router(unknown_command.router)
 
+    dp.message.middleware(AlbumsMiddleware(5))
     logger.info('Bot started')
 
     # Регистрируем меню команд

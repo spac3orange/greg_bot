@@ -7,7 +7,6 @@ class CreateForm(StatesGroup):
     input_photo = State()
     input_photo2 = State()
     input_photo3 = State()
-    input_photo4 = State()
     input_games = State()
     input_description = State()
     input_price = State()
