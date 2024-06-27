@@ -69,53 +69,53 @@ async def p_input_age(message: Message, state: FSMContext):
 
 @router.message(CreateForm.input_photo, lambda message: message.media_group_id is not None)
 async def p_process_media_group(message: Message, state: FSMContext):
-    media_group = message.media_group_id
-    await state.update_data(media_group=media_group)
-
     uid = message.from_user.id
+    media_group_id = message.media_group_id
     files = await state.get_data()
-    media_files = files.get('media_files', [])
 
-    if len(media_files) >= 3:
+    # Получаем или создаем список медиафайлов
+    media_files = files.get('media_files', {})
+    if media_group_id not in media_files:
+        media_files[media_group_id] = []
+
+    if len(media_files[media_group_id]) >= 3:
         await message.answer("Вы уже загрузили максимальное количество файлов (3).")
         return
 
-    media_data = {
-        'media_type': '',
-        'file_id': '',
-        'file_extension': ''
-    }
-
     if message.content_type == ContentType.PHOTO:
-        media_data['media_type'] = 'photo'
-        media_data['file_id'] = message.photo[-1].file_id
-        media_data['file_extension'] = 'jpg'
+        media_type = 'photo'
+        file_id = message.photo[-1].file_id
+        file_extension = 'jpg'
     elif message.content_type == ContentType.VIDEO:
-        media_data['media_type'] = 'video'
-        media_data['file_id'] = message.video.file_id
-        media_data['file_extension'] = 'mp4'
+        media_type = 'video'
+        file_id = message.video.file_id
+        file_extension = 'mp4'
 
-    file_info = await aiogram_bot.get_file(media_data['file_id'])
+    file_info = await aiogram_bot.get_file(file_id)
     if file_info.file_size > 10 * 1024 * 1024:
         await message.answer("Файл слишком большой. Пожалуйста, загрузите файл размером не более 10 мегабайт.")
         return
 
-    media_name = f'{uid}_{random.randint(1000, 9999)}_{media_data["media_type"]}.{media_data["file_extension"]}'
+    media_name = f'{uid}_{random.randint(1000, 9999)}_{media_type}.{file_extension}'
     downloaded_file = await aiogram_bot.download_file(file_info.file_path)
     await check_folder(uid)
     with open(f'media/{uid}/{media_name}', 'wb') as media_file:
         media_file.write(downloaded_file.read())
 
-    media_files.append(f'media/{uid}/{media_name}')
+    media_files[media_group_id].append(f'media/{uid}/{media_name}')
     print(f'{media_files=}')
-    await state.update_data(avatar_path=media_files)
+    await state.update_data(media_files=media_files)
 
-    game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
-                 'VALORANT': 'game_val', 'APEX': 'game_apex',
-                 'Общение': 'game_talk'}
-    await state.update_data(game_dict=game_dict)
-    await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
-    await state.set_state(CreateForm.input_games)
+    # Если все файлы загружены, переходим к следующему шагу
+    if len(media_files[media_group_id]) >= 3:
+        game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
+                     'VALORANT': 'game_val', 'APEX': 'game_apex',
+                     'Общение': 'game_talk'}
+        await state.update_data(game_dict=game_dict)
+        await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
+        await state.set_state(CreateForm.input_games)
+    else:
+        await message.answer(f'Файл {media_name} успешно загружен. Вы можете загрузить еще {3 - len(media_files[media_group_id])} файл(а/ов).')
 
 
 @router.message(CreateForm.input_photo, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO])
