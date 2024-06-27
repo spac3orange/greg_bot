@@ -76,14 +76,12 @@ async def p_input_age(message: Message, state: FSMContext):
 async def p_process_media_group(message: Message, state: FSMContext):
     uid = message.from_user.id
     media_group_id = message.media_group_id
-    cache_key = f"media_files_{uid}"
 
-    # Получаем текущий список медиафайлов из кэша или создаем новый
-    media_files = await cache.get(cache_key, default=[])
+    # Получаем текущий список медиафайлов из состояния или создаем новый
+    data = await state.get_data()
+    media_count = data.get('media_count', 0)
 
-    print(f'Initial media_files={media_files}')  # Добавлено для отладки
-
-    if len(media_files) >= 3:
+    if media_count >= 3:
         await message.answer("Вы уже загрузили максимальное количество файлов (3).")
         return
 
@@ -107,14 +105,15 @@ async def p_process_media_group(message: Message, state: FSMContext):
     with open(f'media/{uid}/{media_name}', 'wb') as media_file:
         media_file.write(downloaded_file.read())
 
-    # Добавляем файл в список
-    media_files.append(f'media/{uid}/{media_name}')
-    print(f'Updated media_files={media_files}')  # Добавлено для отладки
+    # Обновляем состояние с новым файлом
+    media_count += 1
+    cache_key = f'media_file_{uid}_{media_count}'
+    await cache.set(cache_key, f'media/{uid}/{media_name}')
+    await state.update_data(media_count=media_count)
 
-    # Обновляем кэш с новым списком медиафайлов
-    await cache.set(cache_key, media_files)
+    print(f'Updated media_count={media_count}')  # Добавлено для отладки
 
-    if len(media_files) >= 3:
+    if media_count >= 3:
         game_dict = {'CS 2': 'game_cs2', 'DOTA 2': 'game_dota2',
                      'VALORANT': 'game_val', 'APEX': 'game_apex',
                      'Общение': 'game_talk'}
@@ -122,9 +121,10 @@ async def p_process_media_group(message: Message, state: FSMContext):
         await message.answer('Выбери игры, в которые ты играешь: ', reply_markup=main_kb.choose_games(game_dict))
         await state.set_state(CreateForm.input_games)
         # Очистка кэша после завершения загрузки
-        await cache.delete(cache_key)
+        for i in range(1, 4):
+            await cache.delete(f'media_file_{uid}_{i}')
     else:
-        await message.answer(f'Файл {media_name} успешно загружен. Вы можете загрузить еще {3 - len(media_files)} файл(а/ов).')
+        await message.answer(f'Файл {media_name} успешно загружен. Вы можете загрузить еще {3 - media_count} файл(а/ов).')
 
 
 @router.message(CreateForm.input_photo, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO])
