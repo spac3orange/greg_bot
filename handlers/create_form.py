@@ -10,7 +10,7 @@ from states.states import CreateForm
 import random
 import os
 from typing import Dict, Any
-from aiogram.types import InputMediaPhoto
+from aiogram.types import InputMediaPhoto, InputFile
 
 router = Router()
 router.message.filter(
@@ -252,11 +252,11 @@ async def p_input_description(message: Message, state: FSMContext):
     media = []
 
     if avatar_abspath1:
-        media.append(InputMediaPhoto(open(avatar_abspath1, 'rb')))
+        media.append(InputMediaPhoto(media=InputFile(avatar_abspath1)))
     if avatar_abspath2:
-        media.append(InputMediaPhoto(open(avatar_abspath2, 'rb')))
+        media.append(InputMediaPhoto(media=InputFile(avatar_abspath2)))
     if avatar_abspath3:
-        media.append(InputMediaPhoto(open(avatar_abspath3, 'rb')))
+        media.append(InputMediaPhoto(media=InputFile(avatar_abspath3)))
 
     chosen_games = await compare_dicts(data['game_dict'])
     game_list = []
