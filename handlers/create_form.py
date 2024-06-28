@@ -9,15 +9,13 @@ from database import db
 from states.states import CreateForm
 import random
 import os
-from aiocache import Cache
-from aiocache.serializers import JsonSerializer
 from typing import Dict, Any
+from aiogram.types import InputMediaPhoto
 
 router = Router()
 router.message.filter(
 )
 
-cache = Cache(Cache.MEMORY, serializer=JsonSerializer())
 
 
 async def go_main(callback):
@@ -238,7 +236,28 @@ async def p_input_description(message: Message, state: FSMContext):
     await state.update_data(price=int(message.text))
     data = await state.get_data()
     print(data)
-    media = await parse_media(data['avatar_path1'])
+
+    # Получение путей к аватарам из состояния
+    avatar_path1 = data.get('avatar_path1', None)
+    avatar_path2 = data.get('avatar_path2', None)
+    avatar_path3 = data.get('avatar_path3', None)
+    print(avatar_path1, avatar_path2, avatar_path3)
+
+    # Преобразование путей в абсолютные пути
+    avatar_abspath1 = os.path.abspath(avatar_path1) if avatar_path1 else None
+    avatar_abspath2 = os.path.abspath(avatar_path2) if avatar_path2 else None
+    avatar_abspath3 = os.path.abspath(avatar_path3) if avatar_path3 else None
+
+    # Список для хранения объектов InputMediaPhoto
+    media = []
+
+    if avatar_abspath1:
+        media.append(InputMediaPhoto(open(avatar_abspath1, 'rb')))
+    if avatar_abspath2:
+        media.append(InputMediaPhoto(open(avatar_abspath2, 'rb')))
+    if avatar_abspath3:
+        media.append(InputMediaPhoto(open(avatar_abspath3, 'rb')))
+
     chosen_games = await compare_dicts(data['game_dict'])
     game_list = []
     for game in chosen_games:
@@ -248,9 +267,13 @@ async def p_input_description(message: Message, state: FSMContext):
     await message.answer('Предпросмотр анкеты: ')
     full_form = (f'{data["name"]}, {data["age"]}'
                  f'\n<b>Игры:</b> \n{game_str}'
-                 f'\n{data['form_description']}'
+                 f'\n{data["form_description"]}'
                  f'\n<b>Цена за час:</b> {data["price"]}')
-    await message.answer_photo(media, caption=full_form, reply_markup=main_kb.approve_form())
+
+    # Отправка группы медиа
+    if media:
+        await message.answer_media_group(media)
+        await message.answer(text=full_form, reply_markup=main_kb.approve_form())
 
 
 @router.message(CreateForm.input_price)
