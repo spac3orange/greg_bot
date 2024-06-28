@@ -11,6 +11,8 @@ import random
 import os
 from typing import Dict, Any
 from aiogram.types import InputMediaPhoto, InputFile
+from aiogram.types import FSInputFile
+from aiogram.utils.media_group import MediaGroupBuilder
 
 router = Router()
 router.message.filter(
@@ -231,6 +233,7 @@ async def p_add_price_form(message: Message, state: FSMContext):
     await state.set_state(CreateForm.input_price)
 
 
+
 @router.message(CreateForm.input_price, lambda message: message.text.isdigit() and int(message.text) >= 300)
 async def p_input_description(message: Message, state: FSMContext):
     await state.update_data(price=int(message.text))
@@ -248,15 +251,15 @@ async def p_input_description(message: Message, state: FSMContext):
     avatar_abspath2 = os.path.abspath(avatar_path2) if avatar_path2 else None
     avatar_abspath3 = os.path.abspath(avatar_path3) if avatar_path3 else None
 
-    # Список для хранения объектов InputMediaPhoto
-    media = []
+    # Создание альбома медиафайлов
+    album_builder = MediaGroupBuilder()
 
     if avatar_abspath1:
-        media.append(InputMediaPhoto(media=InputFile(avatar_abspath1)))
+        album_builder.add_photo(media=FSInputFile(avatar_abspath1))
     if avatar_abspath2:
-        media.append(InputMediaPhoto(media=InputFile(avatar_abspath2)))
+        album_builder.add_photo(media=FSInputFile(avatar_abspath2))
     if avatar_abspath3:
-        media.append(InputMediaPhoto(media=InputFile(avatar_abspath3)))
+        album_builder.add_photo(media=FSInputFile(avatar_abspath3))
 
     chosen_games = await compare_dicts(data['game_dict'])
     game_list = []
@@ -271,9 +274,9 @@ async def p_input_description(message: Message, state: FSMContext):
                  f'\n<b>Цена за час:</b> {data["price"]}')
 
     # Отправка группы медиа
-    if media:
-        await message.answer_media_group(media)
-        await message.answer(text=full_form, reply_markup=main_kb.approve_form())
+    if album_builder:
+        await message.answer_media_group(media=album_builder.build())
+
 
 
 @router.message(CreateForm.input_price)
