@@ -53,7 +53,7 @@ def approve_form():
 def edit_form():
     kb_builder = InlineKeyboardBuilder()
     kb_builder.button(text='Редактировать', callback_data='create_form')
-    kb_builder.button(text='Удалить', callback_data='del_self_from')
+    kb_builder.button(text='Удалить', callback_data='del_self_form')
     kb_builder.button(text='Назад', callback_data='back_to_main')
     kb_builder.adjust(1)
     return kb_builder.as_markup(resize_keyboard=True)

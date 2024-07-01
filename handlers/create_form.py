@@ -69,7 +69,7 @@ async def p_input_name(message: Message, state: FSMContext):
 async def p_input_age(message: Message, state: FSMContext):
     age = message.text
     await state.update_data(age=age)
-    await message.answer('Теперь пришли фото, или запиши видео (до 15 сек), оно будет отображаться в твоей анкете:')
+    await message.answer('Теперь пришли фото, или запиши видео (до 15 сек), оно будет отображаться в твоей анкете:\n\nПожалуйста, отправляй файлы по одному. Всего в анкете может быть до 3-х меда файлов.')
     await state.set_state(CreateForm.input_photo)
 
 
@@ -206,6 +206,24 @@ async def p_process_media3(message: Message, state: FSMContext):
         await message.answer('Ошибка при загрузке файла.')
 
 
+@router.message(CreateForm.input_photo, lambda message: message.media_group_id is not None)
+async def p_process_media_group(message: Message, state: FSMContext):
+    await message.answer('Пожалуйста, загружайте медиа файлы по одному.')
+    return
+
+
+@router.message(CreateForm.input_photo2, lambda message: message.media_group_id is not None)
+async def p_process_media_group(message: Message, state: FSMContext):
+    await message.answer('Пожалуйста, загружайте медиа файлы по одному.')
+    return
+
+
+@router.message(CreateForm.input_photo3, lambda message: message.media_group_id is not None)
+async def p_process_media_group(message: Message, state: FSMContext):
+    await message.answer('Пожалуйста, загружайте медиа файлы по одному.')
+    return
+
+
 @router.callback_query(lambda callback: callback.data in ['game_cs2', 'game_dota2', 'game_val', 'game_apex', 'game_talk'])
 async def p_choose_game(callback: CallbackQuery, state: FSMContext):
 
@@ -251,15 +269,7 @@ async def p_input_description(message: Message, state: FSMContext):
     avatar_abspath2 = os.path.abspath(avatar_path2) if avatar_path2 else None
     avatar_abspath3 = os.path.abspath(avatar_path3) if avatar_path3 else None
 
-    # Создание альбома медиафайлов
-    album_builder = MediaGroupBuilder()
 
-    if avatar_abspath1:
-        album_builder.add_photo(media=FSInputFile(avatar_abspath1))
-    if avatar_abspath2:
-        album_builder.add_photo(media=FSInputFile(avatar_abspath2))
-    if avatar_abspath3:
-        album_builder.add_photo(media=FSInputFile(avatar_abspath3))
 
     chosen_games = await compare_dicts(data['game_dict'])
     game_list = []
@@ -268,14 +278,22 @@ async def p_input_description(message: Message, state: FSMContext):
     game_str = ', '.join(game_list)
     await state.update_data(games_str=game_str)
     await message.answer('Предпросмотр анкеты: ')
+    # Создание альбома медиафайлов
     full_form = (f'{data["name"]}, {data["age"]}'
                  f'\n<b>Игры:</b> \n{game_str}'
                  f'\n{data["form_description"]}'
                  f'\n<b>Цена за час:</b> {data["price"]}')
-
+    album_builder = MediaGroupBuilder()
+    if avatar_abspath1:
+        album_builder.add_photo(media=FSInputFile(avatar_abspath1))
+    if avatar_abspath2:
+        album_builder.add_photo(media=FSInputFile(avatar_abspath2))
+    if avatar_abspath3:
+        album_builder.add_photo(media=FSInputFile(avatar_abspath3))
     # Отправка группы медиа
     if album_builder:
         await message.answer_media_group(media=album_builder.build())
+        await message.answer(text=full_form, reply_markup=main_kb.approve_form())
 
 
 
@@ -291,24 +309,27 @@ async def p_form_created(callback: CallbackQuery, state: FSMContext):
     await callback.answer()
     print(data)
     uid, username = callback.from_user.id, callback.from_user.username
-    await state.clear()
+
     # Получение путей к аватарам из состояния
-    avatar_path = data.get('avatar_path1', None)
+    avatar_path1 = data.get('avatar_path1', None)
     avatar_path2 = data.get('avatar_path2', None)
     avatar_path3 = data.get('avatar_path3', None)
-    print(avatar_path, avatar_path2, avatar_path3)
-    # Преобразование путей в абсолютные пути
-    avatar_abspath = os.path.abspath(avatar_path) if avatar_path else None
-    avatar_abspath2 = os.path.abspath(avatar_path2) if avatar_path2 else None
-    avatar_abspath3 = os.path.abspath(avatar_path3) if avatar_path3 else None
 
-    avatar_abspath = os.path.abspath(data['avatar_path'])
+    # Преобразование путей в абсолютные пути
+    avatar_paths = [os.path.abspath(path) for path in [avatar_path1, avatar_path2, avatar_path3] if path]
+
+    # Вставка данных в базу данных
     await db.insert_girl_data(
-        uid, username, data.get('name', 'Uknown'),
+        uid, username, data.get('name', 'Unknown'),
         int(data['age']), data['games_str'],
-        avatar_abspath, data['form_description'],
+        avatar_paths, data['form_description'],
         data['price']
     )
-    await callback.message.answer('Анкета создана.')
+
+    # Регистрация в смене
     await db.reg_in_shift(uid, username)
+
+    # Отправка сообщения пользователю с подтверждением создания анкеты
+    await callback.message.answer('Анкета создана.')
+    await state.clear()
     await go_main(callback)

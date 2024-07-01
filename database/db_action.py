@@ -4,6 +4,7 @@ from config import logger
 from typing import List, Dict, Tuple
 import asyncio
 import datetime
+import json
 
 
 class Database:
@@ -69,7 +70,7 @@ class Database:
                     age INTEGER,
                     games TEXT,
                     price INT,
-                    avatar_path TEXT,
+                    avatar_path JSONB,
                     description TEXT,
                     balance INTEGER DEFAULT 0,
                     orders INT DEFAULT 0                    
@@ -138,9 +139,12 @@ class Database:
         except (Exception, asyncpg.PostgresError) as error:
             logger.error(f"Error while deleting wd_request for {user_id}", error)
 
+    import json
+
     async def insert_girl_data(self, user_id: int, username: str, name: str,
-                               age: int, games: str, avatar_path: str, description: str, price: int) -> None:
+                               age: int, games: str, avatar_paths: list, description: str, price: int) -> None:
         try:
+            avatar_paths_str = json.dumps(avatar_paths)  # Преобразование списка в JSON строку
             query = """
                 INSERT INTO girls (user_id, username, name, age, games, avatar_path, description, price)
                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
@@ -153,7 +157,7 @@ class Database:
                     description = EXCLUDED.description,
                     price = EXCLUDED.price
             """
-            await self.execute_query(query, user_id, username, name, age, games, avatar_path, description, price)
+            await self.execute_query(query, user_id, username, name, age, games, avatar_paths_str, description, price)
             logger.info(f"Data for user {user_id} inserted successfully.")
         except (Exception, asyncpg.PostgresError) as error:
             logger.error(f"Error while inserting data for user {user_id} into DB", error)
