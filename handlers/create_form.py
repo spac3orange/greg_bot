@@ -73,14 +73,7 @@ async def p_input_age(message: Message, state: FSMContext):
     await state.set_state(CreateForm.input_photo)
 
 
-@router.message(CreateForm.input_photo, CreateForm.input_photo2,
-                CreateForm.input_photo3, lambda message: message.media_group_id is not None)
-async def p_process_media_group(message: Message, state: FSMContext):
-    await message.answer('Пожалуйста, отправляйте медиа-файлы по одному!')
-    return
-
-
-@router.message(CreateForm.input_photo, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO])
+@router.message(CreateForm.input_photo, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO] and message.media_group_id is None)
 async def p_process_media(message: Message, state: FSMContext):
     try:
         uid = message.from_user.id
@@ -117,7 +110,7 @@ async def p_process_media(message: Message, state: FSMContext):
 
 
 
-@router.message(CreateForm.input_photo2, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO, ContentType.TEXT])
+@router.message(CreateForm.input_photo2, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO, ContentType.TEXT] and message.media_group_id is None)
 async def p_process_media2(message: Message, state: FSMContext):
     try:
         if message.text:
@@ -163,7 +156,7 @@ async def p_process_media2(message: Message, state: FSMContext):
         await message.answer('Ошибка при загрузке файла.')
 
 
-@router.message(CreateForm.input_photo3, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO, ContentType.TEXT])
+@router.message(CreateForm.input_photo3, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO, ContentType.TEXT] and message.media_group_id is None)
 async def p_process_media3(message: Message, state: FSMContext):
     try:
         if message.text:
