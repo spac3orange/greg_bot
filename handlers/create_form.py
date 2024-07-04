@@ -73,6 +73,13 @@ async def p_input_age(message: Message, state: FSMContext):
     await state.set_state(CreateForm.input_photo)
 
 
+@router.message(CreateForm.input_photo, CreateForm.input_photo2,
+                CreateForm.input_photo3, lambda message: message.media_group_id is not None)
+async def p_process_media_group(message: Message, state: FSMContext):
+    await message.answer('Пожалуйста, отправляйте медиа-файлы по одному!')
+    return
+
+
 @router.message(CreateForm.input_photo, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO])
 async def p_process_media(message: Message, state: FSMContext):
     try:
@@ -106,6 +113,8 @@ async def p_process_media(message: Message, state: FSMContext):
     except Exception as e:
         logger.error(e)
         await message.answer('Ошибка при загрузке файла.')
+
+
 
 
 @router.message(CreateForm.input_photo2, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO, ContentType.TEXT])
