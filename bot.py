@@ -20,7 +20,7 @@ async def start_params() -> None:
     dp.include_router(pop_up_commands.router)
     # dp.include_router(unknown_command.router)
 
-    dp.message.middleware(AlbumsMiddleware(5))
+    # dp.message.middleware(AlbumsMiddleware(5))
     logger.info('Bot started')
 
     # Регистрируем меню команд
