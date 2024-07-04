@@ -285,11 +285,20 @@ async def p_input_description(message: Message, state: FSMContext):
                  f'\n<b>Цена за час:</b> {data["price"]}')
     album_builder = MediaGroupBuilder()
     if avatar_abspath1:
-        album_builder.add_photo(media=FSInputFile(avatar_abspath1))
+        if avatar_path1.endswith('mp4'):
+            album_builder.add_video(media=FSInputFile(avatar_abspath1))
+        else:
+            album_builder.add_photo(media=FSInputFile(avatar_abspath1))
     if avatar_abspath2:
-        album_builder.add_photo(media=FSInputFile(avatar_abspath2))
+        if avatar_path2.endswith('mp4'):
+            album_builder.add_video(media=FSInputFile(avatar_abspath2))
+        else:
+            album_builder.add_photo(media=FSInputFile(avatar_abspath2))
     if avatar_abspath3:
-        album_builder.add_photo(media=FSInputFile(avatar_abspath3))
+        if avatar_path3.endswith('mp4'):
+            album_builder.add_video(media=FSInputFile(avatar_abspath2))
+        else:
+            album_builder.add_photo(media=FSInputFile(avatar_abspath3))
     # Отправка группы медиа
     if album_builder:
         await message.answer_media_group(media=album_builder.build())
