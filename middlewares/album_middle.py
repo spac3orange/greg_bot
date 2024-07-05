@@ -5,9 +5,11 @@ from aiogram.types import Message, TelegramObject
 from cachetools import TTLCache
 from aiogram.fsm.context import FSMContext
 
+
 class UserTopicContext:
     def __init__(self):
         self.album: List[Message] = []
+
 
 class AlbumsMiddleware(BaseMiddleware):
     def __init__(self, wait_time_seconds: int):

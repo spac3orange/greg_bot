@@ -1,10 +1,10 @@
-import asyncpg
-from environs import Env
-from config import logger
-from typing import List, Dict, Tuple
-import asyncio
 import datetime
 import json
+
+import asyncpg
+from environs import Env
+
+from config import logger
 
 
 class Database:
@@ -139,8 +139,6 @@ class Database:
         except (Exception, asyncpg.PostgresError) as error:
             logger.error(f"Error while deleting wd_request for {user_id}", error)
 
-    import json
-
     async def insert_girl_data(self, user_id: int, username: str, name: str,
                                age: int, games: str, avatar_paths: list, description: str, price: int) -> None:
         try:
@@ -256,5 +254,6 @@ class Database:
         except (Exception, asyncpg.PostgresError) as error:
             logger.error(f"Error adding to shift table {username}", error)
             return str(error)
+
 
 db = Database()

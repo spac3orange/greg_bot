@@ -1,5 +1,4 @@
 from aiogram.filters import BaseFilter
-from aiogram.types import Message
 from aiogram.types import ContentType, Message
 
 

@@ -1,23 +1,20 @@
-from aiogram.types import Message, CallbackQuery, FSInputFile, ContentType
-from aiogram.filters import CommandStart, Command
+import os
+import random
+
 from aiogram import Router, F
 from aiogram.fsm.context import FSMContext
-from config import logger, aiogram_bot
-from filters import CTFilter
-from keyboards import main_kb
-from database import db
-from states.states import CreateForm
-import random
-import os
-from typing import Dict, Any
-from aiogram.types import InputMediaPhoto, InputFile
 from aiogram.types import FSInputFile
+from aiogram.types import Message, CallbackQuery, ContentType
 from aiogram.utils.media_group import MediaGroupBuilder
+
+from config import logger, aiogram_bot
+from database import db
+from keyboards import main_kb
+from states.states import CreateForm
 
 router = Router()
 router.message.filter(
 )
-
 
 
 async def go_main(callback):
@@ -106,8 +103,6 @@ async def p_process_media(message: Message, state: FSMContext):
     except Exception as e:
         logger.error(e)
         await message.answer('Ошибка при загрузке файла.')
-
-
 
 
 @router.message(CreateForm.input_photo2, lambda message: message.content_type in [ContentType.PHOTO, ContentType.VIDEO, ContentType.TEXT] and message.media_group_id is None)
@@ -228,7 +223,6 @@ async def p_process_media_group(message: Message, state: FSMContext):
 
 @router.callback_query(lambda callback: callback.data in ['game_cs2', 'game_dota2', 'game_val', 'game_apex', 'game_talk'])
 async def p_choose_game(callback: CallbackQuery, state: FSMContext):
-
     remove_game = callback.data
     print(remove_game)
     game_dict = (await state.get_data())['game_dict']
@@ -253,7 +247,6 @@ async def p_add_price_form(message: Message, state: FSMContext):
     await state.set_state(CreateForm.input_price)
 
 
-
 @router.message(CreateForm.input_price, lambda message: message.text.isdigit() and int(message.text) >= 300)
 async def p_input_description(message: Message, state: FSMContext):
     await state.update_data(price=int(message.text))
@@ -270,8 +263,6 @@ async def p_input_description(message: Message, state: FSMContext):
     avatar_abspath1 = os.path.abspath(avatar_path1) if avatar_path1 else None
     avatar_abspath2 = os.path.abspath(avatar_path2) if avatar_path2 else None
     avatar_abspath3 = os.path.abspath(avatar_path3) if avatar_path3 else None
-
-
 
     chosen_games = await compare_dicts(data['game_dict'])
     game_list = []
@@ -305,7 +296,6 @@ async def p_input_description(message: Message, state: FSMContext):
     if album_builder:
         await message.answer_media_group(media=album_builder.build())
         await message.answer(text=full_form, reply_markup=main_kb.approve_form())
-
 
 
 @router.message(CreateForm.input_price)

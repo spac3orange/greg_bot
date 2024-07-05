@@ -1,12 +1,13 @@
 import asyncio
+
 from aiogram import Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
+
 from config import aiogram_bot
 from config.logger import logger
-from keyboards import set_commands_menu
-from handlers import start, create_form, edit_form, girl_lk, pop_up_commands, admin_panel, status
 from database import db
-from middlewares import AlbumsMiddleware
+from handlers import start, create_form, edit_form, girl_lk, pop_up_commands, admin_panel, status
+from keyboards import set_commands_menu
 
 
 async def start_params() -> None:

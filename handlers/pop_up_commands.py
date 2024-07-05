@@ -1,14 +1,8 @@
-from aiogram.types import Message, CallbackQuery, FSInputFile, ContentType
-from aiogram.filters import CommandStart, Command
-from aiogram import Router, F
+from aiogram import Router
+from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
-from config import logger, aiogram_bot
-from filters import CTFilter
-from keyboards import main_kb
-from database import db
-from states.states import CreateForm
-import random
-import os
+from aiogram.types import Message
+
 router = Router()
 router.message.filter(
 )

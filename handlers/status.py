@@ -1,16 +1,14 @@
 from datetime import datetime, timedelta
-from aiogram.types import Message, CallbackQuery, FSInputFile, ContentType
-from aiogram.filters import CommandStart, Command
+
 from aiogram import Router, F
 from aiogram.fsm.context import FSMContext
+from aiogram.types import Message, CallbackQuery
+
 from config import logger, aiogram_bot
-from filters import CTFilter
-from keyboards import main_kb
 from database import db
+from keyboards import main_kb
 from states.states import SetStatusOnline
 from utils import Scheduler
-import random
-import os
 
 router = Router()
 router.message.filter(

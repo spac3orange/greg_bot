@@ -1,17 +1,13 @@
-from aiogram.types import Message, CallbackQuery, FSInputFile, ContentType
-from aiogram.filters import CommandStart, Command
-from aiogram import Router, F
-from aiogram.fsm.context import FSMContext
-from config import logger, aiogram_bot, config_aiogram
-from filters import CTFilter, IsAdmin
-from keyboards import main_kb
-from database import db
 import json
-from aiogram.types import InputMediaPhoto, InputFile
+
+from aiogram import Router, F
+from aiogram.types import CallbackQuery, FSInputFile
 from aiogram.utils.media_group import MediaGroupBuilder
-from states.states import CreateForm
-import random
-import os
+
+from config import logger, aiogram_bot, config_aiogram
+from database import db
+from filters import IsAdmin
+from keyboards import main_kb
 
 router = Router()
 router.message.filter(

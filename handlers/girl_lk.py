@@ -1,14 +1,11 @@
-from aiogram.types import Message, CallbackQuery, FSInputFile, ContentType
-from aiogram.filters import CommandStart, Command
 from aiogram import Router, F
 from aiogram.fsm.context import FSMContext
-from config import logger, aiogram_bot
-from filters import CTFilter
-from keyboards import main_kb
+from aiogram.types import Message, CallbackQuery
+
+from config import logger
 from database import db
-from states.states import CreateForm, ReqMoney
-import random
-import os
+from keyboards import main_kb
+from states.states import ReqMoney
 
 router = Router()
 router.message.filter(
@@ -56,7 +53,6 @@ async def p_req_money(callback: CallbackQuery, state: FSMContext):
 
 @router.message(ReqMoney.input_card)
 async def p_input_card(message: Message, state: FSMContext):
-
     if not message.text.isdigit():
         await message.answer('Пожалуйста, введите корректный номер карты.')
     else:
