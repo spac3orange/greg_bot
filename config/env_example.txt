@@ -1,0 +1,9 @@
+BOT_TOKEN = 6980769149:Ai8e1k0mbm8UEclQU8 #токен бота
+ADMIN_ID = 462813109,232513454 #id админов
+
+# База данных PostgreSQL
+DB_USER = postgres
+DB_PASSWORD = kwork33zZ//]
+DB_HOST = localhost
+DB_NAME = game_chat_bot
+DB_PORT = 5432
