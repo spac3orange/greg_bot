@@ -90,7 +90,7 @@ async def p_input_name(message: Message, state: FSMContext):
 @router.message(CreateForm.input_name)
 async def p_input_name_inv(message: Message, state: FSMContext):
     name = message.text
-    await message.answer('Обнаружены запрещенные символы < или >\nПожалуйста, не используйте их.')
+    await message.answer('Обнаружены запрещенные символы &lt; или &gt;.\nПожалуйста, не используйте их.')
     return
 
 
@@ -287,7 +287,7 @@ async def p_add_price_form(message: Message, state: FSMContext):
 
 @router.message(CreateForm.input_description)
 async def p_add_price_form_inv(message: Message, state: FSMContext):
-    await message.answer('Обнаружены запрещенные символы < или >\nПожалуйста, не используйте их.')
+    await message.answer('Обнаружены запрещенные символы &lt; или &gt;.\nПожалуйста, не используйте их.')
     return
 
 @router.message(CreateForm.input_price, lambda message: message.text.isdigit() and int(message.text) >= 300)
