@@ -16,11 +16,16 @@ router = Router()
 router.message.filter(
 )
 
+FORBIDDEN_CHARS = ['<', '>']
 
 async def get_mime_type(file_path):
     mime = magic.Magic(mime=True)
     mime_type = mime.from_file(file_path)
     return mime_type
+
+
+def contains_forbidden_chars(text):
+    return any(char in text for char in FORBIDDEN_CHARS)
 
 
 async def is_video(file_path):
@@ -74,6 +79,9 @@ async def p_create_form(callback: CallbackQuery, state: FSMContext):
 @router.message(CreateForm.input_name)
 async def p_input_name(message: Message, state: FSMContext):
     name = message.text
+    if contains_forbidden_chars(message.text):
+        await message.answer("В вашем сообщении присутствуют запрещенные символы < или >. Пожалуйста, введите текст без них.")
+        return
     await state.update_data(name=name)
     await message.answer('Сколько тебе лет?')
     await state.set_state(CreateForm.input_age)
@@ -264,6 +272,9 @@ async def p_check_form(callback: CallbackQuery, state: FSMContext):
 
 @router.message(CreateForm.input_description)
 async def p_add_price_form(message: Message, state: FSMContext):
+    if contains_forbidden_chars(message.text):
+        await message.answer("В вашем сообщении присутствуют запрещенные символы < или >. Пожалуйста, введите текст без них.")
+        return
     await state.update_data(form_description=message.text)
     await message.answer('Введи желаемую цену за час игры: ')
     await state.set_state(CreateForm.input_price)
