@@ -45,13 +45,15 @@ async def p_admin_panel(callback: CallbackQuery):
 @router.callback_query(F.data == 'wd_requests')
 async def p_wd_reqs(callback: CallbackQuery):
     wd_req = await db.get_withdraw_requests()
-    print(wd_req)
-    for req in wd_req:
-        req_str = (f'<b>ID:</b> {req["user_id"]}'
-                   f'\n<b>Username:</b>{req["username"]}'
-                   f'\n<b>Баланс:</b> {req["balance"]}'
-                   f'\n<b>Дата:</b> {req["date"]}')
-        await callback.message.answer(req_str, reply_markup=main_kb.req_menu(req['user_id']))
+    if wd_req:
+        for req in wd_req:
+            req_str = (f'<b>ID:</b> {req["user_id"]}'
+                       f'\n<b>Username:</b>{req["username"]}'
+                       f'\n<b>Баланс:</b> {req["balance"]}'
+                       f'\n<b>Дата:</b> {req["date"]}')
+            await callback.message.answer(req_str, reply_markup=main_kb.req_menu(req['user_id']))
+    else:
+        await callback.message.answer('Нет заявок на вывод средств.')
 
 
 @router.callback_query(F.data.startswith('apply_req_'))
