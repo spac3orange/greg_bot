@@ -7,10 +7,15 @@ from database import db
 from keyboards import main_kb
 from states.states import DelService
 from config import logger
+import random
 
 router = Router()
 router.message.filter(
 )
+
+
+def generate_random_id(length=10):
+    return ''.join(random.choices('0123456789', k=length))
 
 
 @router.callback_query(F.data == 'g_add_service')
@@ -39,7 +44,8 @@ async def p_save_serv(message: Message, state: FSMContext):
                          f'\nЦена услуги: {serv_price}'
                          f'\n\nУслуга добавлена.'
                          f'\n\nДобавить новые услуги или редактировать существующие ты можешь на странице <b>Моя анкета</b>.', reply_markup=main_kb.g_add_additional_serv())
-    await db.insert_service(uid, uname, serv_name, serv_price)
+    s_id = int(generate_random_id(10))
+    await db.insert_service(uid, uname, serv_name, serv_price, s_id)
 
 
 @router.callback_query(F.data == 'edit_services')

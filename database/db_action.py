@@ -103,6 +103,7 @@ class Database:
                     username TEXT,
                     service_name TEXT,
                     price INT,
+                    s_id BIGINT,
                     PRIMARY KEY (user_id, service_name)
                 )
             """)
@@ -265,21 +266,21 @@ class Database:
             logger.error(f"Error adding to shift table {username}", error)
             return str(error)
 
-    async def insert_service(self, user_id: int, username: str, service_name: str, price: int):
+    async def insert_service(self, user_id: int, username: str, service_name: str, price: int, s_id: int):
         query = """
-            INSERT INTO g_services (user_id, username, service_name, price)
-            VALUES ($1, $2, $3, $4)
+            INSERT INTO g_services (user_id, username, service_name, price, s_id)
+            VALUES ($1, $2, $3, $4, $5)
             ON CONFLICT (user_id, service_name) DO NOTHING
         """
         try:
-            await self.execute_query(query, user_id, username, service_name, price)
+            await self.execute_query(query, user_id, username, service_name, price, s_id)
             print(f"Service '{service_name}' for user '{username}' added successfully.")
         except (Exception, asyncpg.PostgresError) as error:
             logger.error(f"Error while inserting service '{service_name}' for user '{username}': {error}")
 
     async def get_services_by_user_id(self, user_id: int):
         query = """
-            SELECT user_id, username, service_name, price
+            SELECT user_id, username, service_name, price, s_id
             FROM g_services
             WHERE user_id = $1
         """
@@ -300,6 +301,19 @@ class Database:
             print(f"Service '{service_name}' for user with ID '{user_id}' deleted successfully.")
         except (Exception, asyncpg.PostgresError) as error:
             logger.error(f"Error while deleting service '{service_name}' for user with ID '{user_id}': {error}")
+
+    async def get_service_name_by_s_id(self, s_id: int):
+        query = """
+            SELECT service_name
+            FROM g_services
+            WHERE s_id = $1
+        """
+        try:
+            result = await self.fetch_row(query, s_id)
+            return result['service_name'] if result else None
+        except (Exception, asyncpg.PostgresError) as error:
+            logger.error(f"Error while getting service name for s_id '{s_id}': {error}")
+            return None
 
 
 db = Database()

@@ -11,13 +11,13 @@ def start_btns(uid):
         kb_builder.button(text='Статус', callback_data='edit_status')
         kb_builder.button(text='Личный кабинет', callback_data='girls_lk')
         kb_builder.button(text='Админ панель', callback_data='admin_panel')
-        kb_builder.button(text='Тех. Поддержка', url='https://t.me/stepusiks')
+        kb_builder.button(text='Тех. Поддержка', url='https://t.me/egirlforyou')
     else:
         kb_builder.button(text='Создать анкету', callback_data='create_form')
         kb_builder.button(text='Моя анкета', callback_data='my_forms')
         kb_builder.button(text='Статус', callback_data='edit_status')
         kb_builder.button(text='Личный кабинет', callback_data='girls_lk')
-        kb_builder.button(text='Тех. Поддержка', url='https://t.me/stepusiks')
+        kb_builder.button(text='Тех. Поддержка', url='https://t.me/egirlforyou')
     kb_builder.adjust(2)
     return kb_builder.as_markup(resize_keyboard=True)
 
