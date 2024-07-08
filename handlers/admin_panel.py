@@ -8,11 +8,26 @@ from config import logger, aiogram_bot, config_aiogram
 from database import db
 from filters import IsAdmin
 from keyboards import main_kb
-
+import magic
 router = Router()
 router.message.filter(
     IsAdmin(F)
 )
+
+async def get_mime_type(file_path):
+    mime = magic.Magic(mime=True)
+    mime_type = mime.from_file(file_path)
+    return mime_type
+
+
+async def is_video(file_path):
+    mime_type = await get_mime_type(file_path)
+    return mime_type.startswith('video')
+
+
+async def is_photo(file_path):
+    mime_type = await get_mime_type(file_path)
+    return mime_type.startswith('image')
 
 
 async def parse_media(path):
@@ -78,7 +93,10 @@ async def p_get_all_forms(callback: CallbackQuery):
             # Создание альбома медиафайлов
             album_builder = MediaGroupBuilder()
             for avatar_path in avatar_paths:
-                album_builder.add_photo(media=FSInputFile(avatar_path))
+                if await is_video(avatar_path):
+                    album_builder.add_video(media=FSInputFile(avatar_path))
+                elif await is_photo(avatar_path):
+                    album_builder.add_photo(media=FSInputFile(avatar_path))
             full_form = (f'{i["name"]}, {i["age"]}'
                          f'\n<b>Игры:</b> \n{i["games"]}'
                          f'\n{i['description']}')
