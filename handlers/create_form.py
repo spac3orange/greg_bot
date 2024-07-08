@@ -1,6 +1,6 @@
 import os
 import random
-
+import magic
 from aiogram import Router, F
 from aiogram.fsm.context import FSMContext
 from aiogram.types import FSInputFile
@@ -15,6 +15,23 @@ from states.states import CreateForm
 router = Router()
 router.message.filter(
 )
+
+
+async def get_mime_type(file_path):
+    mime = magic.Magic(mime=True)
+    mime_type = mime.from_file(file_path)
+    return mime_type
+
+
+async def is_video(file_path):
+    mime_type = await get_mime_type(file_path)
+    return mime_type.startswith('video')
+
+
+async def is_photo(file_path):
+    mime_type = await get_mime_type(file_path)
+    return mime_type.startswith('image')
+
 
 
 async def go_main(callback):
@@ -79,13 +96,14 @@ async def p_process_media(message: Message, state: FSMContext):
         if message.content_type == ContentType.PHOTO:
             media_type = 'photo'
             file_id = message.photo[-1].file_id
-            file_extension = 'jpg'
         elif message.content_type == ContentType.VIDEO:
             media_type = 'video'
             file_id = message.video.file_id
-            file_extension = 'mp4'
 
+            # Получаем информацию о файле
         file_info = await aiogram_bot.get_file(file_id)
+        file_path = file_info.file_path
+        file_extension = os.path.splitext(file_path)[1][1:]  # Извлекаем расширение файла без точки
         if file_info.file_size > 10 * 1024 * 1024:
             await message.answer("Файл слишком большой. Пожалуйста, загрузите файл размером не более 10 мегабайт.")
             return
@@ -124,13 +142,14 @@ async def p_process_media2(message: Message, state: FSMContext):
             if message.content_type == ContentType.PHOTO:
                 media_type = 'photo'
                 file_id = message.photo[-1].file_id
-                file_extension = 'jpg'
             elif message.content_type == ContentType.VIDEO:
                 media_type = 'video'
                 file_id = message.video.file_id
-                file_extension = 'mp4'
 
+                # Получаем информацию о файле
             file_info = await aiogram_bot.get_file(file_id)
+            file_path = file_info.file_path
+            file_extension = os.path.splitext(file_path)[1][1:]  # Извлекаем расширение файла без точки
             if file_info.file_size > 10 * 1024 * 1024:
                 await message.answer("Файл слишком большой. Пожалуйста, загрузите файл размером не более 10 мегабайт.")
                 return
@@ -170,11 +189,14 @@ async def p_process_media3(message: Message, state: FSMContext):
             if message.content_type == ContentType.PHOTO:
                 media_type = 'photo'
                 file_id = message.photo[-1].file_id
-                file_extension = 'jpg'
             elif message.content_type == ContentType.VIDEO:
                 media_type = 'video'
                 file_id = message.video.file_id
-                file_extension = 'mp4'
+
+                # Получаем информацию о файле
+            file_info = await aiogram_bot.get_file(file_id)
+            file_path = file_info.file_path
+            file_extension = os.path.splitext(file_path)[1][1:]  # Извлекаем расширение файла без точки
 
             file_info = await aiogram_bot.get_file(file_id)
             if file_info.file_size > 10 * 1024 * 1024:
@@ -204,19 +226,19 @@ async def p_process_media3(message: Message, state: FSMContext):
 
 
 @router.message(CreateForm.input_photo, lambda message: message.media_group_id is not None)
-async def p_process_media_group(message: Message, state: FSMContext):
+async def p_process_media_group1(message: Message, state: FSMContext):
     await message.answer('Пожалуйста, загружайте медиа файлы по одному.')
     return
 
 
 @router.message(CreateForm.input_photo2, lambda message: message.media_group_id is not None)
-async def p_process_media_group(message: Message, state: FSMContext):
+async def p_process_media_group2(message: Message, state: FSMContext):
     await message.answer('Пожалуйста, загружайте медиа файлы по одному.')
     return
 
 
 @router.message(CreateForm.input_photo3, lambda message: message.media_group_id is not None)
-async def p_process_media_group(message: Message, state: FSMContext):
+async def p_process_media_group3(message: Message, state: FSMContext):
     await message.answer('Пожалуйста, загружайте медиа файлы по одному.')
     return
 
@@ -278,19 +300,21 @@ async def p_input_description(message: Message, state: FSMContext):
                  f'\n<b>Цена за час:</b> {data["price"]}')
     album_builder = MediaGroupBuilder()
     if avatar_abspath1:
-        if avatar_path1.endswith('mp4'):
+        if await is_video(avatar_abspath1):
             album_builder.add_video(media=FSInputFile(avatar_abspath1))
-        else:
+        elif await is_photo(avatar_abspath1):
             album_builder.add_photo(media=FSInputFile(avatar_abspath1))
+
     if avatar_abspath2:
-        if avatar_path2.endswith('mp4'):
+        if await is_video(avatar_abspath2):
             album_builder.add_video(media=FSInputFile(avatar_abspath2))
-        else:
+        elif await is_photo(avatar_abspath2):
             album_builder.add_photo(media=FSInputFile(avatar_abspath2))
+
     if avatar_abspath3:
-        if avatar_path3.endswith('mp4'):
-            album_builder.add_video(media=FSInputFile(avatar_abspath2))
-        else:
+        if await is_video(avatar_abspath3):
+            album_builder.add_video(media=FSInputFile(avatar_abspath3))
+        elif await is_photo(avatar_abspath3):
             album_builder.add_photo(media=FSInputFile(avatar_abspath3))
     # Отправка группы медиа
     if album_builder:
@@ -331,6 +355,5 @@ async def p_form_created(callback: CallbackQuery, state: FSMContext):
     await db.reg_in_shift(uid, username)
 
     # Отправка сообщения пользователю с подтверждением создания анкеты
-    await callback.message.answer('Анкета создана.')
+    await callback.message.answer('Анкета создана.\nТеперь ты можешь добававить услуги.', reply_markup=main_kb.g_add_serv())
     await state.clear()
-    await go_main(callback)

@@ -97,6 +97,16 @@ class Database:
                                     )
                                 """)
 
+            await self.execute_query("""
+                CREATE TABLE IF NOT EXISTS g_services (
+                    user_id BIGINT,
+                    username TEXT,
+                    service_name TEXT,
+                    price INT,
+                    PRIMARY KEY (user_id, service_name)
+                )
+            """)
+
             logger.info('connected to database')
 
         except (Exception, asyncpg.PostgresError) as error:
@@ -254,6 +264,42 @@ class Database:
         except (Exception, asyncpg.PostgresError) as error:
             logger.error(f"Error adding to shift table {username}", error)
             return str(error)
+
+    async def insert_service(self, user_id: int, username: str, service_name: str, price: int):
+        query = """
+            INSERT INTO g_services (user_id, username, service_name, price)
+            VALUES ($1, $2, $3, $4)
+            ON CONFLICT (user_id, service_name) DO NOTHING
+        """
+        try:
+            await self.execute_query(query, user_id, username, service_name, price)
+            print(f"Service '{service_name}' for user '{username}' added successfully.")
+        except (Exception, asyncpg.PostgresError) as error:
+            logger.error(f"Error while inserting service '{service_name}' for user '{username}': {error}")
+
+    async def get_services_by_user_id(self, user_id: int):
+        query = """
+            SELECT user_id, username, service_name, price
+            FROM g_services
+            WHERE user_id = $1
+        """
+        try:
+            services = await self.fetch_all(query, user_id)
+            return services
+        except (Exception, asyncpg.PostgresError) as error:
+            logger.error(f"Error while getting services for user_id '{user_id}': {error}")
+            return []
+
+    async def delete_service(self, user_id: int, service_name: str):
+        query = """
+            DELETE FROM g_services
+            WHERE user_id = $1 AND service_name = $2
+        """
+        try:
+            await self.execute_query(query, user_id, service_name)
+            print(f"Service '{service_name}' for user with ID '{user_id}' deleted successfully.")
+        except (Exception, asyncpg.PostgresError) as error:
+            logger.error(f"Error while deleting service '{service_name}' for user with ID '{user_id}': {error}")
 
 
 db = Database()

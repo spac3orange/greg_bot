@@ -53,9 +53,10 @@ def approve_form():
 def edit_form():
     kb_builder = InlineKeyboardBuilder()
     kb_builder.button(text='Редактировать', callback_data='create_form')
+    kb_builder.button(text='Услуги', callback_data='edit_services')
     kb_builder.button(text='Удалить', callback_data='del_self_form')
     kb_builder.button(text='Назад', callback_data='back_to_main')
-    kb_builder.adjust(1)
+    kb_builder.adjust(2)
     return kb_builder.as_markup(resize_keyboard=True)
 
 
@@ -88,5 +89,30 @@ def g_status_menu():
     kb_builder = InlineKeyboardBuilder()
     kb_builder.button(text='Онлайн', callback_data=f'chstatus_online')
     kb_builder.button(text='Оффлайн', callback_data=f'chstatus_offline')
+    kb_builder.adjust(2)
+    return kb_builder.as_markup(resize_keyboard=True)
+
+
+def g_add_serv():
+    kb_builder = InlineKeyboardBuilder()
+    kb_builder.button(text='Добавить', callback_data=f'g_add_service')
+    kb_builder.button(text='Позже', callback_data=f'back_to_main')
+    kb_builder.adjust(2)
+    return kb_builder.as_markup(resize_keyboard=True)
+
+
+def g_add_additional_serv():
+    kb_builder = InlineKeyboardBuilder()
+    kb_builder.button(text='Добавить еще', callback_data=f'g_add_service')
+    kb_builder.button(text='Позже', callback_data=f'back_to_main')
+    kb_builder.adjust(2)
+    return kb_builder.as_markup(resize_keyboard=True)
+
+
+def g_edit_serv():
+    kb_builder = InlineKeyboardBuilder()
+    kb_builder.button(text='Добавить', callback_data=f'g_add_service')
+    kb_builder.button(text='Удалить', callback_data=f'g_del_service')
+    kb_builder.button(text='Назад', callback_data=f'my_forms')
     kb_builder.adjust(2)
     return kb_builder.as_markup(resize_keyboard=True)

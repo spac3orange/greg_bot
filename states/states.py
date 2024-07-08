@@ -22,3 +22,13 @@ class Admmailing(StatesGroup):
 
 class SetStatusOnline(StatesGroup):
     input_hours = State()
+
+
+class AddService(StatesGroup):
+    choose_type = State()
+    input_name = State()
+    input_price = State()
+
+
+class DelService(StatesGroup):
+    input_name = State()
