@@ -72,8 +72,9 @@ class Database:
                     price INT,
                     avatar_path JSONB,
                     description TEXT,
+                    price_per_ppl INT,
                     balance INTEGER DEFAULT 0,
-                    orders INT DEFAULT 0                    
+                    orders INT DEFAULT 0                 
                 )
             """)
 
@@ -151,12 +152,12 @@ class Database:
             logger.error(f"Error while deleting wd_request for {user_id}", error)
 
     async def insert_girl_data(self, user_id: int, username: str, name: str,
-                               age: int, games: str, avatar_paths: list, description: str, price: int) -> None:
+                               age: int, games: str, avatar_paths: list, description: str, price: int, price_ppl: int) -> None:
         try:
             avatar_paths_str = json.dumps(avatar_paths)  # Преобразование списка в JSON строку
             query = """
-                INSERT INTO girls (user_id, username, name, age, games, avatar_path, description, price)
-                VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+                INSERT INTO girls (user_id, username, name, age, games, avatar_path, description, price, price_per_ppl)
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
                 ON CONFLICT (user_id) DO UPDATE SET
                     username = EXCLUDED.username,
                     name = EXCLUDED.name,
@@ -164,9 +165,10 @@ class Database:
                     games = EXCLUDED.games,
                     avatar_path = EXCLUDED.avatar_path,
                     description = EXCLUDED.description,
-                    price = EXCLUDED.price
+                    price = EXCLUDED.price,
+                    price_per_ppl = EXCLUDED.price_per_ppl
             """
-            await self.execute_query(query, user_id, username, name, age, games, avatar_paths_str, description, price)
+            await self.execute_query(query, user_id, username, name, age, games, avatar_paths_str, description, price, price_ppl)
             logger.info(f"Data for user {user_id} inserted successfully.")
         except (Exception, asyncpg.PostgresError) as error:
             logger.error(f"Error while inserting data for user {user_id} into DB", error)

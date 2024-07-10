@@ -55,7 +55,8 @@ async def p_forms(callback: CallbackQuery):
         form_descr = (f"{gd['name']}, {gd['age']}"
                       f"\n<b>Игры:</b> {gd['games']}"
                       f"\n{gd['description']}"
-                      f"\n<b>Цена за час:</b> {gd['price']}")
+                      f"\n<b>Цена за включение веб-камеры:</b> {gd['price']}"
+                      f"\n<b>Цена за дополнительных участников:</b> {gd['price_per_ppl']}")
 
         # Отправка группы медиа
         if album_builder:

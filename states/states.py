@@ -10,6 +10,7 @@ class CreateForm(StatesGroup):
     input_games = State()
     input_description = State()
     input_price = State()
+    input_viewers_p = State()
 
 
 class ReqMoney(StatesGroup):

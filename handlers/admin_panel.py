@@ -14,6 +14,7 @@ router.message.filter(
     IsAdmin(F)
 )
 
+
 async def get_mime_type(file_path):
     mime = magic.Magic(mime=True)
     mime_type = mime.from_file(file_path)
@@ -44,6 +45,7 @@ async def p_admin_panel(callback: CallbackQuery):
 
 @router.callback_query(F.data == 'wd_requests')
 async def p_wd_reqs(callback: CallbackQuery):
+    await callback.answer()
     wd_req = await db.get_withdraw_requests()
     if wd_req:
         for req in wd_req:
@@ -101,7 +103,9 @@ async def p_get_all_forms(callback: CallbackQuery):
                     album_builder.add_photo(media=FSInputFile(avatar_path))
             full_form = (f'{i["name"]}, {i["age"]}'
                          f'\n<b>Игры:</b> \n{i["games"]}'
-                         f'\n{i['description']}')
+                         f'\n<b>О себе:</b> {i['description']}'
+                         f'\n<b>Цена за включение веб-камеры:</b> {i["price"]} рублей'
+                         f'\n<b>Цена за дополнительных участников</b> {i["price_per_ppl"]} рублей')
             # Отправка группы медиа
             if album_builder:
                 await callback.message.answer_media_group(media=album_builder.build())

@@ -282,17 +282,35 @@ async def p_check_form(callback: CallbackQuery, state: FSMContext):
 async def p_add_price_form(message: Message, state: FSMContext):
 
     await state.update_data(form_description=message.text)
-    await message.answer('Введи желаемую цену за час игры: ')
-    await state.set_state(CreateForm.input_price)
+    await message.answer('Укажи желаемую цену за включение веб-камеры: ')
+    await state.set_state(CreateForm.input_viewers_p)
+
+
+
+
 
 @router.message(CreateForm.input_description)
 async def p_add_price_form_inv(message: Message, state: FSMContext):
     await message.answer('Обнаружены запрещенные символы &lt; или &gt;.\nПожалуйста, не используйте их.')
     return
 
-@router.message(CreateForm.input_price, lambda message: message.text.isdigit() and int(message.text) >= 300)
+
+@router.message(CreateForm.input_viewers_p, lambda message: message.text.isdigit() and int(message.text) >= 300)
+async def p_input_v_price(message: Message, state: FSMContext):
+    await state.update_data(web_price=int(message.text))
+    await message.answer('Укажи желаемую сумму за доплату (1 человека): ')
+    await state.set_state(CreateForm.input_price)
+
+
+@router.message(CreateForm.input_viewers_p)
 async def p_input_description(message: Message, state: FSMContext):
-    await state.update_data(price=int(message.text))
+    await message.answer('Цена должна быть цифрой!'
+                         '\nМинимальная цена: 300 руб.')
+
+
+@router.message(CreateForm.input_price, lambda message: message.text.isdigit() and int(message.text) >= 50)
+async def p_input_description(message: Message, state: FSMContext):
+    await state.update_data(add_viewers=int(message.text))
     data = await state.get_data()
     print(data)
 
@@ -318,7 +336,8 @@ async def p_input_description(message: Message, state: FSMContext):
     full_form = (f'{data["name"]}, {data["age"]}'
                  f'\n<b>Игры:</b> \n{game_str}'
                  f'\n{data["form_description"]}'
-                 f'\n<b>Цена за час:</b> {data["price"]}')
+                 f'\n<b>Цена за включение веб-камеры:</b> {data["web_price"]} рублей'
+                 f'\n<b>Цена за дополнительных участников:</b> {data["add_viewers"]} рублей')
     album_builder = MediaGroupBuilder()
     if avatar_abspath1:
         if await is_video(avatar_abspath1):
@@ -346,7 +365,7 @@ async def p_input_description(message: Message, state: FSMContext):
 @router.message(CreateForm.input_price)
 async def p_input_description(message: Message, state: FSMContext):
     await message.answer('Цена должна быть цифрой!'
-                         '\nМинимальная цена: 300 руб.')
+                         '\nМинимальная цена: 50 рублей')
 
 
 @router.callback_query(F.data == 'form_created')
@@ -369,12 +388,12 @@ async def p_form_created(callback: CallbackQuery, state: FSMContext):
         uid, username, data.get('name', 'Unknown'),
         int(data['age']), data['games_str'],
         avatar_paths, data['form_description'],
-        data['price']
+        data['web_price'], data['add_viewers']
     )
 
     # Регистрация в смене
     await db.reg_in_shift(uid, username)
 
     # Отправка сообщения пользователю с подтверждением создания анкеты
-    await callback.message.answer('Анкета создана.\nТеперь ты можешь добававить услуги.', reply_markup=main_kb.g_add_serv())
+    await callback.message.answer('Анкета создана.\nТеперь ты можешь добавить услуги.', reply_markup=main_kb.g_add_serv())
     await state.clear()
