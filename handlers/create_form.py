@@ -298,7 +298,7 @@ async def p_add_price_form_inv(message: Message, state: FSMContext):
 @router.message(CreateForm.input_viewers_p, lambda message: message.text.isdigit() and int(message.text) >= 300)
 async def p_input_v_price(message: Message, state: FSMContext):
     await state.update_data(web_price=int(message.text))
-    await message.answer('Укажи желаемую сумму за доплату (1 человека): ')
+    await message.answer('Укажи желаемую сумму доплаты за 1 человека: ')
     await state.set_state(CreateForm.input_price)
 
 
